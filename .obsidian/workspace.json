@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "b41b5301829ab66f",
+        "id": "58df9e1fdcf33087",
         "type": "tabs",
         "children": [
           {
-            "id": "bf5ee1f043aa2694",
+            "id": "8bdcdd2ac4c5fc35",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -162,21 +162,24 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "bf5ee1f043aa2694",
+  "active": "8bdcdd2ac4c5fc35",
   "lastOpenFiles": [
-    "EMSE/papers/Notes on the papers.md",
+    "EMSE/requirements.md",
+    "EMSE/requirements.pdf",
+    "EMSE/patterns.md",
+    "EMSE/patterns.pdf",
+    "EMSE/seminar.md",
+    "EMSE/papers/3. Rahe_FSE_2025.pdf",
+    "EMSE/seminar.pdf",
     "EMSE/exams.pdf",
+    "EMSE/papers/6. Present.md",
+    "EMSE/papers/10. Discuss.md",
+    "EMSE/exercises.tex",
     "EMSE/papers/assignments.png",
     "EMSE/papers/9. (out?) Qiu_ICSE_2019.pdf",
-    "EMSE/papers/10. Discuss.md",
-    "EMSE/papers/6. Present.md",
     "EMSE/papers/10. (discuss) Mueller_ICSE_2016.pdf",
     "Untitled.canvas",
     "EMSE/papers/4. Reich_ICSE_2023.pdf",
-    "EMSE/papers/5. Sheth_ICSE_2014.pdf",
-    "EMSE/papers/3. Rahe_FSE_2025.pdf",
-    "EMSE/patterns.pdf",
-    "sb.pdf",
-    "fees.pdf"
+    "EMSE/papers/5. Sheth_ICSE_2014.pdf"
   ]
 }
