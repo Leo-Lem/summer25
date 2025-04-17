@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "58df9e1fdcf33087",
+        "id": "8cd55a59faefa8cf",
         "type": "tabs",
         "children": [
           {
-            "id": "8bdcdd2ac4c5fc35",
+            "id": "8940d4f4eb3c4841",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -74,7 +74,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "e8cab4844700727c",
@@ -162,24 +163,25 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "8bdcdd2ac4c5fc35",
+  "active": "8940d4f4eb3c4841",
   "lastOpenFiles": [
+    "EMSE/papers/10. Discuss.md",
+    "EMSE/papers/10. (discuss) Mueller_ICSE_2016.pdf",
+    "EMSE/seminar.md",
+    "EMSE/papers/6. Present.md",
+    "EMSE/papers/6. (present) Lueders_RE_2022.pdf",
+    "EMSE/papers/9. (out?) Qiu_ICSE_2019.pdf",
+    "EMSE/papers/11. Bouraffa_ICSE_2023.pdf",
+    "EMSE/papers/8. Roehm_ICSE_2012.pdf",
+    "2025-04-17.md",
+    "EMSE/papers/7. Sedano_ICSE_2019.pdf",
+    "EMSE/papers/5. Sheth_ICSE_2014.pdf",
+    "EMSE/papers/4. Reich_ICSE_2023.pdf",
+    "EMSE/papers/assignments.png",
     "EMSE/requirements.md",
     "EMSE/requirements.pdf",
     "EMSE/patterns.md",
     "EMSE/patterns.pdf",
-    "EMSE/seminar.md",
-    "EMSE/papers/3. Rahe_FSE_2025.pdf",
-    "EMSE/seminar.pdf",
-    "EMSE/exams.pdf",
-    "EMSE/papers/6. Present.md",
-    "EMSE/papers/10. Discuss.md",
-    "EMSE/exercises.tex",
-    "EMSE/papers/assignments.png",
-    "EMSE/papers/9. (out?) Qiu_ICSE_2019.pdf",
-    "EMSE/papers/10. (discuss) Mueller_ICSE_2016.pdf",
-    "Untitled.canvas",
-    "EMSE/papers/4. Reich_ICSE_2023.pdf",
-    "EMSE/papers/5. Sheth_ICSE_2014.pdf"
+    "Untitled.canvas"
   ]
 }
