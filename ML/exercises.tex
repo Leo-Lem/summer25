@@ -9,257 +9,198 @@
 \begin{document}
 \createtitle
 
-\sheet[0]{Repeat Linear Algebra}
+\sheet[2024]{First Exam}
 
-\begin{exercise}{Norms}
-  Consider the following vectors:
-  \[
-    \mathbf{w}_1 = (0,\,1,\,2,\,3)^\top, 
-    \quad 
-    \mathbf{w}_2 = (2,\,3,\,0,\,0)^\top.
-  \]
-  Compute the 0-norm, 1-norm, 2-norm (Euclidean norm), and the $\infty$-norm of each vector.
-  
+\begin{exercise}{Multiple Choice}
+  \begin{enumerate}
+    \item Which of the following functions is convex?
+      \begin{itemize}
+        \item $f(x) = ||x||_1 - 1$, $x \in \mathbb{R}^d$
+        \item $f(x) = e^x$, $x \in \mathbb{R}$
+        \item $f(x) = \max(0, |x|)$, $x \in \mathbb{R}$
+      \end{itemize}
+    \item Which are the effects of ensemble learning when applied to Decision Trees using Random Forests?
+      \begin{itemize}
+        \item Reduces bias, increases variance
+        \item Reduces variance, increases bias
+        \item Can be used to avoid overfitting
+        \item Can be used to avoid underfitting
+      \end{itemize}
+    \item Which statements are true about the KNN algorithm?
+      \begin{itemize}
+        \item Increasing $k$ increases model variance
+        \item Increasing $k$ increases model bias
+        \item You can use it for regression
+        \item You can also use the L1-norm as a distance metric
+      \end{itemize}
+    \item Which statements are true about k-means?
+      \begin{itemize}
+        \item It is sensitive to noisy data or many outliers
+        \item It always converges
+        \item It always finds an optimal solution
+      \end{itemize}
+    \item What is correct with respect to QDA?
+      \begin{itemize}
+        \item It's a generative model.
+        \item It can be used for regression.
+        \item It assumes that each individual data point follows a certain Gaussian distribution and that all of these distributions have the same covariance matrix.
+      \end{itemize}
+    \item Which statements are true about Naive Bayes?
+      \begin{itemize}
+        \item You can classify more than one class with it.
+        \item Together with Laplacian smoothing it can be used for regression.
+      \end{itemize}
+    \item Which statements are true about PCA?
+      \begin{itemize}
+        \item PCA is a clustering algorithm.
+        \item In PCA, the variance of the projected data points is maximized.
+        \item PCA uses linear combinations of the input features for the transformation.
+      \end{itemize}
+  \end{enumerate}
+
   \begin{solution}
-    For $\mathbf{w}_1 = (0,\,1,\,2,\,3)$:
-    \[
-      \|\mathbf{w}_1\|_0 = 3,\quad
-      \|\mathbf{w}_1\|_1 = |0| + |1| + |2| + |3| = 6,\quad
-      \|\mathbf{w}_1\|_2 = \sqrt{0^2 + 1^2 + 2^2 + 3^2} = \sqrt{14},\quad
-      \|\mathbf{w}_1\|_\infty = 3.
-    \]
-
-    For $\mathbf{w}_2 = (2,\,3,\,0,\,0)$:
-    \[
-      \|\mathbf{w}_2\|_0 = 2,\quad
-      \|\mathbf{w}_2\|_1 = |2| + |3| + |0| + |0| = 5,\quad
-      \|\mathbf{w}_2\|_2 = \sqrt{2^2 + 3^2} = \sqrt{13},\quad
-      \|\mathbf{w}_2\|_\infty = 3.
-    \]
+    \begin{enumerate}
+      \item \textbf{Convex functions:} $f(x) = ||x||_1 - 1$ is convex, $f(x) = e^x$ is convex, $f(x) = \max(0, |x|)$ is convex.
+      \item \textbf{Ensemble learning effects:} Reduces variance, increases bias; can be used to avoid overfitting.
+      \item \textbf{KNN statements:} Increasing $k$ increases model bias; you can use it for regression; you can also use the L1-norm as a distance metric.
+      \item \textbf{k-means statements:} It is sensitive to noisy data or many outliers; it always converges.
+      \item \textbf{QDA statements:} It's a generative model; it can be used for regression.
+      \item \textbf{Naive Bayes statements:} You can classify more than one class with it.
+      \item \textbf{PCA statements:} In PCA, the variance of the projected data points is maximized; PCA uses linear combinations of the input features for the transformation.
+    \end{enumerate}
   \end{solution}
 \end{exercise}
 
-\begin{exercise}{Determinant, Trace, Inverse}
-  Compute the determinant, the trace, and the inverse of each matrix:
-  \[
-    A_1 = \begin{pmatrix} 1 & 0 \\ 0 & 100 \end{pmatrix},
-    \quad
-    A_2 = \begin{pmatrix} 2 & 10 \\ 0 & 100 \end{pmatrix}.
-  \]
-  
-  \begin{solution}
-    For 
-    \[
-      A_1 = \begin{pmatrix} 1 & 0 \\ 0 & 100 \end{pmatrix}:
-      \quad
-      \det(A_1) = 1 \cdot 100 = 100, 
-      \quad
-      \mathrm{trace}(A_1) = 101, 
-      \quad
-      A_1^{-1} = \begin{pmatrix} 1 & 0 \\[4pt] 0 & \tfrac{1}{100} \end{pmatrix}.
-    \]
+\begin{exercise}{SVMs}
+  \begin{enumerate}
+    \item What is the base assumption (inductive bias) about your data if you use an SVM?
+    \item How do Hard-margin SVMs differ from Soft-margin SVMs?
+    \item Given the plot, draw the decision boundaries for a hard margin and a soft margin SVM and mark them properly.
+  \end{enumerate}
 
-    For 
+  \begin{solution}
+    \begin{enumerate}
+      \item The base assumption is that the data is linearly separable.
+      \item Hard-margin SVMs require perfect separation of classes, while soft-margin SVMs allow for some misclassification to handle noise.
+      \item [Insert plot with decision boundaries]
+    \end{enumerate}
+  \end{solution}
+\end{exercise}
+
+\begin{exercise}{Covariance and Kernel Matrix}
+  You are given the three data points (0,1), (1,-2), (-1,1). Compute the covariance matrix and the kernel matrix (aka Gram matrix). In general, what are the dimensions of the Covariance Matrix and the Kernel Matrix for an input Matrix of $n \times d$?
+
+  \begin{solution}
+    The covariance matrix is:
     \[
-      A_2 = \begin{pmatrix} 2 & 10 \\ 0 & 100 \end{pmatrix}:
-      \quad
-      \det(A_2) = 2 \cdot 100 - 0 \cdot 10 = 200,
-      \quad
-      \mathrm{trace}(A_2) = 102,
-    \]
-    \[
-      A_2^{-1}
-      = \frac{1}{200} 
-      \begin{pmatrix}
-        100 & -10 \\[3pt]
-        0   & 2
+      \text{Cov}(X) = \begin{pmatrix}
+        0 & 1 \\
+        1 & -2 \\
+        -1 & 1
       \end{pmatrix}
-      = \begin{pmatrix}
-        \tfrac{1}{2} & -\tfrac{1}{20} \\[3pt]
-        0            & \tfrac{1}{100}
-      \end{pmatrix}.
     \]
-  \end{solution}
-\end{exercise}
-
-\begin{exercise}{Eigenvalues and Eigenvectors}
-  Compute the eigenvalues and corresponding eigenvectors of:
-  \[
-    A_1 = \begin{pmatrix} 1 & 0 \\ 0 & 100 \end{pmatrix},
-    \quad
-    A_2 = \begin{pmatrix} 2 & 10 \\ 10 & 2 \end{pmatrix}.
-  \]
-  
-  \begin{solution}
-    For 
+    The kernel matrix is:
     \[
-      A_1 = \begin{pmatrix} 1 & 0 \\ 0 & 100 \end{pmatrix}:
-      \quad
-      \lambda_1 = 1,\; \lambda_2 = 100.
-    \]
-    An eigenvector for $\lambda_1=1$ is $(1,\,0)^\top$, and for $\lambda_2=100$ is $(0,\,1)^\top$.
-
-    For 
-    \[
-      A_2 = \begin{pmatrix} 2 & 10 \\ 10 & 2 \end{pmatrix}:
-    \]
-    Solve $\det(A_2 - \lambda I)=0$:
-    \[
-      (2 - \lambda)^2 - 10\cdot10 = 0
-      \;\Rightarrow\;
-      (2-\lambda)^2 = 100
-      \;\Rightarrow\;
-      2-\lambda = \pm 10
-      \;\Rightarrow\;
-      \lambda_1 = 12,\;\lambda_2 = -8.
-    \]
-    An eigenvector for $\lambda_1=12$ is $(1,\,1)^\top$, and for $\lambda_2=-8$ is $(1,\,-1)^\top$.
-  \end{solution}
-\end{exercise}
-
-\begin{exercise}{Definiteness}
-  Classify the following matrices as positive semidefinite, positive definite, negative semidefinite, negative definite, or indefinite:
-  \[
-    A_1 = \begin{pmatrix} 1 & 0 \\ 0 & 100 \end{pmatrix},
-    \quad
-    A_2 = \begin{pmatrix} 2 & 10 \\ 10 & 2 \end{pmatrix}.
-  \]
-  
-  \begin{solution}
-    The matrix 
-    \[
-      A_1 = \begin{pmatrix} 1 & 0 \\ 0 & 100 \end{pmatrix}
-    \]
-    has eigenvalues $1$ and $100$, both $> 0$, so it is positive definite.
-
-    The matrix 
-    \[
-      A_2 = \begin{pmatrix} 2 & 10 \\ 10 & 2 \end{pmatrix}
-    \]
-    has eigenvalues $12$ and $-8$, one positive and one negative, so it is indefinite.
-  \end{solution}
-\end{exercise}
-
-\begin{exercise}{Rank}
-  Determine the rank of:
-  \[
-    A_1 = \begin{pmatrix} 1 & 0 \\ 0 & 100 \end{pmatrix},
-    \quad
-    A_2 = \begin{pmatrix} 2 & 10 \\ 10 & 50 \end{pmatrix}.
-  \]
-  
-  \begin{solution}
-    The matrix 
-    \[
-      A_1 = \begin{pmatrix} 1 & 0 \\ 0 & 100 \end{pmatrix}
-    \]
-    is invertible (nonzero determinant), so its rank is 2.
-
-    For 
-    \[
-      A_2 = \begin{pmatrix} 2 & 10 \\ 10 & 50 \end{pmatrix}:
-    \]
-    \[
-      \det(A_2) = 2\cdot50 - 10\cdot10 = 100 - 100 = 0,
-    \]
-    and the second row is 5 times the first, so its rank is 1.
-  \end{solution}
-\end{exercise}
-
-\begin{exercise}{Linear System}
-  Solve the system:
-  \[
-    \begin{pmatrix}
-      1 & 1 & 1 \\
-      1 & 2 & 3 \\
-      2 & 3 & 4
-    \end{pmatrix}
-    \mathbf{x}
-    =
-    \begin{pmatrix}
-      1 \\ 2 \\ 3
-    \end{pmatrix}.
-  \]
-  
-  \begin{solution}
-    Let $\mathbf{x} = (x_1,\,x_2,\,x_3)^\top$. Then:
-    \[
-      \begin{cases}
-        x_1 + x_2 + x_3 = 1,\\
-        x_1 + 2x_2 + 3x_3 = 2,\\
-        2x_1 + 3x_2 + 4x_3 = 3.
-      \end{cases}
-    \]
-    Subtracting the first equation from the second gives $x_2 + 2x_3 = 1.$ 
-    An appropriate combination for the third yields the same constraint. 
-    Thus $x_2 = 1 - 2x_3.$ 
-    From the first equation, $x_1 + (1 - 2x_3) + x_3 = 1,$ which simplifies to $x_1 = x_3.$ 
-    Letting $x_3 = t$ gives
-    \[
-      \mathbf{x} = 
-      \begin{pmatrix}
-        t \\[3pt]
-        1 - 2t \\[3pt]
-        t
+      K = \begin{pmatrix}
+        1 & 0 & -1 \\
+        0 & 4 & -2 \\
+        -1 & -2 & 1
       \end{pmatrix}
-      \quad (t \in \mathbb{R}).
     \]
+    The dimensions of the Covariance Matrix are $d \times d$ and for the Kernel Matrix are $n \times n$.
   \end{solution}
 \end{exercise}
 
-\begin{exercise}{Inverse of a Transpose}
-  Prove that $(A^\top)^{-1} = (A^{-1})^\top$.
-  
+\begin{exercise}{Isomap and Ridge Regression}
+  \begin{enumerate}
+    \item What is the objective of isomap and how does it differ from PCA? (2 sentences)
+    \item Describe the steps of the isomap algorithm (3 sentences).
+    \item Is isomap a supervised or an unsupervised ML algorithm and why? (1 sentence)
+  \end{enumerate}
+
   \begin{solution}
-    From $A\,A^{-1} = I,$ taking transposes gives $(A^{-1})^\top \,A^\top = I.$ 
-    By definition of inverse, $(A^\top)^{-1}$ is the unique matrix $B$ satisfying $A^\top B = I,$ 
-    so $B = (A^{-1})^\top.$ 
-    Hence $(A^\top)^{-1} = (A^{-1})^\top.$
+    \begin{enumerate}
+      \item The objective of isomap is to preserve the geodesic distances between points in a manifold, while PCA focuses on maximizing variance. Isomap captures nonlinear structures, whereas PCA assumes linear relationships.
+      \item The steps of the isomap algorithm include: 1) Compute pairwise geodesic distances between points using Dijkstra's algorithm, 2) Construct a low-dimensional embedding by applying classical MDS to the distance matrix, and 3) Project the data into the lower-dimensional space.
+      \item Isomap is an unsupervised learning algorithm because it does not rely on labeled data for its computations.
+    \end{enumerate}
   \end{solution}
 \end{exercise}
 
-\sheet[1]{Least Squares Regression}
+\begin{exercise}{Ridge Regression Solver}
+  You have the problem: 
+    \[ \min_{w} \sum_{i=1}^{n} \left( \left(x^{(i)}\right)^T w - y^{(i)} \right)^2 + \lambda \sum_{j=1}^{m} \alpha_j w_j^2 \]
+  With scikit-learn only, the solver for ridge regression (i.e., $\|Xw - y\|_2^2 + \alpha\|w\|_2^2$) is provided. How can you change the problem and still use the ridge regression solver implemented in scikit-learn? Provide a mathematical derivation of your solution.
 
-\begin{exercise}{Interpretation of Weights and Offset}
-  How do you interpret the weights $\mathbf{w}$ and offset $b$ in a least squares regression analysis?
-  
   \begin{solution}
-    In linear regression, $\mathbf{w}$ indicates how each input feature influences the prediction, 
-    while $b$ (often called intercept) is a constant shift. 
-    For one-dimensional inputs, these represent slope and intercept of a best-fit line; 
-    in higher dimensions, they define the best-fit hyperplane.
-  \end{solution}
-\end{exercise}
-
-\begin{exercise}{Gradient of the Least Squares Loss}
-  Show that 
-  \[
-    \nabla_{\mathbf{w}} \bigl\|\mathbf{y} - X\,\mathbf{w}\bigr\|_2^2 
-    \;=\; 
-    2\,X^\top\!\bigl(X\,\mathbf{w} - \mathbf{y}\bigr).
-  \]
-  (You may omit matrix calculus and verify by computing partial derivatives w.r.t.\ each $w_i$.)
-  
-  \begin{solution}
-    Writing $\|\mathbf{y} - X\,\mathbf{w}\|_2^2 = \sum_{j=1}^n \bigl(y_j - \mathbf{x}_j^\top \mathbf{w}\bigr)^2,$ 
-    with $\mathbf{x}_j^\top$ as the $j$th row of $X$, each partial derivative w.r.t.\ $w_i$ involves
+    The problem can be transformed by introducing a new variable $w' = \sqrt{\lambda} w$. The objective becomes:
     \[
-      \frac{\partial}{\partial w_i}\bigl(\mathbf{x}_j^\top \mathbf{w}\bigr) = x_{j,i}.
+      \min_{w'} \sum_{i=1}^{n} \left( \left(x^{(i)}\right)^T \frac{1}{\sqrt{\lambda}} w' - y^{(i)} \right)^2 + \sum_{j=1}^{m} \left(w'_j\right)^2
     \]
-    Summing over $j$ yields the $i$th component of $2\,X^\top\!(X\,\mathbf{w} - \mathbf{y})$. 
-    Hence in vector form, the gradient is $2\,X^\top\!(X\,\mathbf{w} - \mathbf{y})$.
+    This allows us to use the ridge regression solver in scikit-learn, as it now matches the form of the ridge regression problem.
   \end{solution}
 \end{exercise}
 
-\begin{exercise}{Existence of a Solution}
-  Prove that the system of equations for least squares regression always has at least one solution, and discuss the possible number of solutions.
-  
+\begin{exercise}{Matrix}
+  You are given a rating matrix and since you know that there are a lot of outliers in the data, you choose the L1 norm instead of the L2 norm. Come up with an algorithm that is similar to ALS that solves this problem (pseudocode preferred) and also derive the mathematical reason for your solution.
+    \[ \min_{U, V} \|R - UV^T\|_{1,\Omega} \]
+    \[ \|A\|_{1,\Omega} = \sum_{i,j} |a_{i,j}| \]
+
   \begin{solution}
-    The normal equations are $X^\top X\,\mathbf{w} = X^\top \mathbf{y}.$ 
-    Because $X^\top X$ is positive semidefinite, at least one solution always minimizes $\|X\,\mathbf{w} - \mathbf{y}\|_2.$ 
-    If $X$ has full column rank, $X^\top X$ is invertible, giving a unique solution 
-    $\mathbf{w}^* = (X^\top X)^{-1} X^\top \mathbf{y}.$ 
-    Otherwise, infinitely many solutions satisfy the normal equations.
+    The algorithm can be derived as follows:
+    \begin{enumerate}
+      \item Initialize $U$ and $V$ randomly.
+      \item For each iteration:
+        \begin{itemize}
+          \item Fix $U$ and update $V$ by solving:
+            \[
+              V = \arg\min_{V} \sum_{i,j \in \Omega} |R_{i,j} - U_i V_j^T| + \lambda \|V\|_1
+            \]
+          \item Fix $V$ and update $U$ similarly.
+        \end{itemize}
+      \item Repeat until convergence.
+    \end{enumerate}
+    The mathematical reason is that the L1 norm leads to a sparse solution, which is beneficial in the presence of outliers. The optimization alternates between updating $U$ and $V$, similar to ALS, but uses L1 regularization to handle the outliers effectively.
+  \end{solution}
+\end{exercise}
+
+\begin{exercise}{Python}
+  You are given the following Python code:
+
+  \medskip
+  \texttt{def foo(X, y, alpha):}\\
+  \texttt{\ \ m,n = X.shape}\\
+  \texttt{\ \ th = np.random.randn(1,n)}\\
+  \texttt{\ \ for \_ in range(1000):}\\
+  \texttt{\ \ \ \ u = 2/m * X.T.dot(X.dot(th) - y) + 2 * alpha * th}\\
+  \texttt{\ \ \ \ th -= 1e-3 * u}\\
+  \texttt{\ \ return th}
+
+  What problem is being solved, and what do the variables represent?
+
+  \begin{solution}
+    This code implements a gradient descent algorithm for ridge regression.  
+    - $X$: design matrix of features.
+    - $y$: target vector.
+    - $\alpha$: regularization parameter.
+    - $th$: parameter vector being learned.
+    The update step includes the gradient of squared error and an L2 penalty term.
+  \end{solution}
+\end{exercise}
+
+\begin{exercise}{Regularization}
+  \begin{enumerate}
+    \item What is regularization?
+    \item How does it affect variance and bias?
+    \item Provide one means of regularization (one sentence).
+  \end{enumerate}
+
+  \begin{solution}
+    \begin{enumerate}
+      \item Regularization is a technique used to prevent overfitting by adding a penalty term to the loss function.
+      \item Regularization typically increases bias but decreases variance, leading to a more generalized model.
+      \item One means of regularization is L2 regularization, which adds the squared magnitude of coefficients as a penalty term.
+    \end{enumerate}
   \end{solution}
 \end{exercise}
 
