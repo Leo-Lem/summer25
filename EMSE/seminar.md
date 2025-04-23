@@ -1,7 +1,7 @@
  ![[assignments.png]]
 ## Validity
 1. Internal: can observed effect be attributed to studied variables?
-2. External: how well do the results generalize? (to larger population, other settings, etc.)
+2. External: how well do the results generalise? (to larger population, other settings, etc.)
 3. Construct: is the right thing tested/measured?
 4. Conclusion: are conclusions statistically sound?
 ## [[3. Rahe_FSE_2025.pdf]]: Programming students' GenAI use
@@ -70,7 +70,7 @@
 * **Threats to Validity**:
 	* **internal**: short task duration, task variety, observer bias. mostly mitigated.
 	* **external**: non-random sample, but maximised diversity. variety in codebase unknown -> possibly less generalisability.
-## [[9. (out?) Qiu_ICSE_2019.pdf]]: social capital impact in OSS
+## [[9. Qiu_ICSE_2019.pdf]]: social capital impact in OSS
 * **Problem**: unclear relationship of social capital and participation in OSS.
 * **Results**
 	* social capital effect on participation? positive, for women diversity required.
