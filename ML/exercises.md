@@ -14,13 +14,14 @@
 **Gaussian elimination**: lower triangle. eliminate variables.
 **Matrix multiplication**: row x column.
 ## 1. Least Squares Regression
-**Goal**: find best-fitting linear function. $\min_{\tilde{w}}{\sum_{i=1}^{n}{\frac{1}{2}\left(y^{(i)}-(\tilde{x}^{(i)})^{\top}\tilde{w}\right)^2}}$ or $\min_{\tilde{w}}{{\frac{1}{2}||\tilde{X}\tilde{w}-y||}^2}$.
+**Goal**: find best-fitting linear function. $\min_{\tilde{w}}{\sum_{i=1}^{n}{\frac{1}{2}\left((\tilde{x}^{(i)})^{\top}\tilde{w}-y^{(i)}\right)^2}}$ or $\min_{\tilde{w}}{{\frac{1}{2}||\tilde{X}\tilde{w}-y||}^2}$.
 **Bias integration**: into weights, $\tilde{x}$ column 1.
 **Weights**: influence of each parameter on result.
 **Offset**: general bias (or weight 0).
 **Mean squared error (MSE)**: $L=\frac{1}{2}(y-\hat{y})^2$.
 **Gradient**: $\nabla L=X^{\top}(Xw-y)$. Solve for 0: $(X^\top X)w=X^\top y$.
 **Runtime**: $O(d^3)$.
+**Intuition why there are always solutions**: minimising not eliminating loss -> always a solution.
 ## 2. Optimisation for ML
 **gradient**: partial derivates.
 **convex sets**: all points are connected with other points.
