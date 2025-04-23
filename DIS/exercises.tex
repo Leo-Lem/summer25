@@ -1,0 +1,155 @@
+\documentclass{article}
+
+\usepackage[]{xrcise}
+
+\subject{Databases and Information Systems}
+\semester{Summer 2024}
+\author{Leopold Lemmermann}
+
+\begin{document}\createtitle
+
+\sheet[2022]{Second Exam}
+\begin{exercise}{Histories and Schedules}
+  Given the following schedule:
+  \begin{enumerate}
+    \item $T_1: r(x), w(x), r(y), w(y)$
+    \item $T_2: r(x), w(x), r(y), w(y)$
+    \item $T_3: r(x), w(x), r(y), w(y)$
+  \end{enumerate}
+
+  \begin{enumerate}
+    \item Determine if the schedule is in CSR.
+    \item If not, draw the conflict graph.
+    \item Rank the following: Full > FSR > VSR > CSR > OCSR > COSCSR > Serial.
+  \end{enumerate}
+
+  \begin{solution}
+    % TODO
+  \end{solution}
+\end{exercise}
+
+
+% Aufgabe 2: Concurrency Control
+% • Es war ein Konflikt Graph gegeben mit 6 Transaktion die wild Abhänigkeiten und Zyklen
+% haben. Es mussten zwei Strategien angegeben werden wie Deadlocks aufgelöst werden
+% können und die TA(s) angeben die zu einem Zyklenfreien Graphen führen.
+% • Erkennen von den Kanonischen Problemen (Dirty Read, Lost Update, Non Repeatable
+% Read, Phantom Problem) in Schedules.
+% • Eine Aufgabe mit der Abfrage ob ein Shedule in 2PL, S2PL und SS2PL. Der gegebene
+% Schedule musste auch in 2PL mit read und write Locks aufgeschrieben werden.
+\begin{exercise}{Concurrency Control}
+  Given the following conflict graph:
+    % TODO: Insert graph here (6 transactions with wild dependencies and cycles)
+
+  \begin{enumerate}
+    \item Give two strategies to resolve deadlocks and name the transactions that lead to a cycle-free graph.
+  \end{enumerate}
+
+  \begin{solution}
+    % TODO
+  \end{solution}
+\end{exercise}
+
+
+% Aufgabe 3: Logging und Recovery
+% • Es wurde ein Log-File gegeben
+% • Transaction Consistent Checkpoint (TCC), Non-Atomic/Steal/NoForce
+% • Es mussten Winner/Loser TA gefunden werden
+% • Angeben wann die REDO/UNDO Recovery startet.
+% • Angeben wie oft es abgestürtzt ist (anhand des Log?). Hier sind wir uns etwas unsicher wie
+% das zu verstehen ist, grundsätzlich wurde in der Aufgabenstellung angegeben, dass der
+% Absturz stattgefunden hat aber es gab eine Compensation Log Records in der Log-Datei.
+\begin{exercise}{Logging und Recovery}
+  \begin{enumerate}
+    \item 
+  \end{enumerate}
+
+  \begin{solution}
+    % TODO
+  \end{solution}
+\end{exercise}
+
+
+% Aufgabe 4: NoSQL
+% • Angabe der 4 Kategorisierung von NoSQL-Datenbanken mit je einem Beispiel
+% • Allgemeine Fragen zu NoSQL und den eigenschaften (ja/nein)
+% • Abfrage von CAP und was es bedeutet und was das Problem damit ist.
+% • Two Phase Commit Protocol und wie es funktioniert
+% ◦ Der Coordinator stirbt bevor er den COMMIT-Befehl gesendet hat, er hat aber schon ins
+% Log geschrieben, dass er senden möchte. Was passiert?
+% ◦ Der Coordinator kommt wieder zurück, was kann er unternehmen (es wurde schon
+% geschreiben, dass der Commit senden möchte)
+% ◦ Ein Agent findet heraus, dass ein anderer Knoten den COMMIT-Befehl bekommen hat.
+% ◦ Der Coordinator kommt wieder, hat aber kein Log für das commit geschrieben, obwohl
+% er alle READY-Nachrichten erhhalten hat. Was passiert?
+\begin{exercise}{NoSQL}
+  \begin{enumerate}
+    \item 
+  \end{enumerate}
+
+  \begin{solution}
+    % TODO
+  \end{solution}
+\end{exercise}
+
+
+% Aufgabe 5: Data Warehouse
+% • Es war ein Schema gegeben, es musste bestimmt werden welcher Typ das Schema ist
+% (Galaxy).
+% • Es musste dem Schema eine Tabelle hinzugefügt werden die aggregierte Daten enthält.
+% • Es musste eine SQL Abfrage geschrieben werden die für die Jahre 2000 bis 2010 den
+% Durchschnitt für jedes Jahr von einem Fact bestimmt.
+% • ETL musste beschrieben werden, eventuell musste auch 3 Typen von Transformationen
+% beschrieben werden die im ETL-Prozess passieren.
+% • Wurde CUBE(A), GROUPING SET(C), ROLL UP (B) gegeben und man musste angeben
+% welche grouping Sets daraus entstehen.
+% • Welche funktionale Abhängigkeiten muss gegeben sein, dass alle angegebenen grouping
+% Sets auch entstehen.
+\begin{exercise}{Data Warehouse}
+  \begin{enumerate}
+    \item 
+  \end{enumerate}
+
+  \begin{solution}
+    % TODO
+  \end{solution}
+\end{exercise}
+
+
+% Aufgabe 6: Data Mining
+% • K-NN mit Manhatten distanz, K = 5. Es war ein Kartesisches Koordinatensystem gegeben in
+% dem verschiedene Punkte angegeben waren und entsprechenden Klassen zugeordnet. In der
+% Aufgabenstellung wurden weitere Punkte gegeben die Klassifiziert werden sollten.
+% Es war eine Tabelle gegeben in die die nahen 5 Punkte eingetragen werden konnten mit
+% Distanz. Daraus sollte ermittelt werden welche Klasse die neuen Punkte sind.
+% • Es wurde gefragt wie die Abstände von Klassifizierungen bestimmt werden können (Single
+% Linkage, Complete Linkage, Group Average, Canonical Entity)
+% • Malen eines Dendrogramms
+\begin{exercise}{Data Mining}
+  \begin{enumerate}
+    \item 
+  \end{enumerate}
+
+  \begin{solution}
+    % TODO
+  \end{solution}
+\end{exercise}
+
+
+% Aufgabe 7: Big Data Analysis
+% • Es wurden einfache Wissensfragen gestellt, hier reicht vollkommen die Vorlesung einmal
+% gesehen zu haben.
+% • Es wurden auch zu zwei echten Datenbanken, die erwähnt wurden, Fragen gestellt (Flink
+% und Spark).
+\begin{exercise}{Big Data}
+  \begin{enumerate}
+    \item 
+  \end{enumerate}
+
+  \begin{solution}
+    % TODO
+  \end{solution}
+\end{exercise}
+
+
+\end{document}
