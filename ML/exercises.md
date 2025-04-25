@@ -28,29 +28,18 @@
 **convex functions**: convex set and connection is contained in shape.
 **convexity rules**: linear is convex and concave. norm is convex. square is convex if $A$ is psd ($w^TAw$).
 **exact line search for step length/learning rate**: if i move only along given line, how far should i move to minimise?
-## 3. Polynomial Regression
-
-## 4. Regularisation
-
-## 5. Maximum Likelihood Principle
-
-## 6. More Regression
-
-## 7. Logistic Regression
-
-## 8. SVM
-
-## 9. Decision Trees
-
-## 10. Discriminant Analysis
-
-## 11. k-means
-
-## 12. PCA
-
-## 13. Dimensionality Reduction
-
-## 14. Matrix Factorisation
-
-## 15. Deep Learning
+## 3. Polynomial regression and basis functions
+**map to higher-dimension linear regression**: $x \to \tilde{x}=(x^d,x^{d-1},…,x,1)^\top\in \mathbb{R}^{d+1}$.
+**mapping works for arbitrary function**: we can model anything theoretically. problem: over- and underfitting.
+## 4. Over-/Underfitting
+**$k$-fold cross validation**: split data into blocks, use each block for validation once and others for training (train $k$ times).
+**regularization**: constrain magnitude/norm of model parameters. $\min_w{L(w)+\frac{\lambda}{2}||w||_2^2}$.
+**approach**: solve for many $\lambda$, k-fold cross validation for each (called regularization paths), pick best $\lambda^*$ (minimal validation error), train with $\lambda^*$.
+**Empirical (ERM) v. regularized risk minimization (RRM)**: without and with regularization.
+**Bias v. variance**: TODO
+## 5. More Regression
+**Ridge regression**: least squares with 2-norm regulariser. solved via linear equations or gradient descent.
+**LASSO**: sparse solutions (example: many genes, few patients for data). $\min_w{\frac{1}{2n}||Xw-y||_2^2+\lambda||w_||_1}$.
+**Elastic Net**: interpolation between ridge and lasso.
+**Robust regression**: loss insensitive to outliers. $min_w\frac{1}{n}||Xw-y||_1$. often with different regularizer than 1-norm.
 
