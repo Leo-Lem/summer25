@@ -1,4 +1,4 @@
-[[patterns.pdf]]
+[patterns.pdf](patterns.pdf)
 ## Patterns
 _3-part rule expressing relation between context, problem, and solution._
 * **Algorithm**s are defined sequence for solving problem. v. **Pattern**: general core of solution.
