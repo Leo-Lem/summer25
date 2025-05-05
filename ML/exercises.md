@@ -39,7 +39,7 @@
 **Empirical (ERM) v. regularized risk minimization (RRM)**: without and with regularization.
 **Bias v. variance**: TODO
 ## 5. More Regression
-**Ridge regression**: least squares with 2-norm regulariser. solved via linear equations or gradient descent.
+**Ridge regression**: least squares with 2-norm regulariser. solved via linear equations or gradient descent. Zero-ed gradient: $X^\top X+n\lambda I=X^\top y$.
 **LASSO**: sparse solutions (example: many genes, few patients for data). $\min_w{\frac{1}{2n}||Xw-y||_2^2+\lambda||w_||_1}$.
 **Elastic Net**: interpolation between ridge and lasso.
 **Robust regression**: loss insensitive to outliers. $min_w\frac{1}{n}||Xw-y||_1$. often with different regularizer than 1-norm.
