@@ -1,4 +1,5 @@
 [[ML/exercises.pdf|exercises]]
+[slides](ML/slides.pdf)
 ## 0. Repeat Linear Algebra
 **Norms**
 - 0-norm: non-zeros
