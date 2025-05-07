@@ -1,6 +1,6 @@
 [[ML/exercises.pdf|exercises]]
 [slides](ML/slides.pdf)
-## 0. Repeat Linear Algebra
+# 0. Repeat Linear Algebra
 **Norms**
 - 0-norm: non-zeros
 - 1-norm: sum
@@ -14,7 +14,7 @@
 **Rank**: output dimensions. linearly independent columns.
 **Gaussian elimination**: lower triangle. eliminate variables.
 **Matrix multiplication**: row x column.
-## 1. Least Squares Regression
+# 1. Least Squares Regression
 **Goal**: find best-fitting linear function. $\min_{\tilde{w}}{\sum_{i=1}^{n}{\frac{1}{2}\left((\tilde{x}^{(i)})^{\top}\tilde{w}-y^{(i)}\right)^2}}$ or $\min_{\tilde{w}}{{\frac{1}{2}||\tilde{X}\tilde{w}-y||}^2}$.
 **Bias integration**: into weights, $\tilde{x}$ column 1.
 **Weights**: influence of each parameter on result.
@@ -23,24 +23,31 @@
 **Gradient**: $\nabla L=X^{\top}(Xw-y)$. Solve for 0: $(X^\top X)w=X^\top y$.
 **Runtime**: $O(d^3)$.
 **Intuition why there are always solutions**: minimising not eliminating loss -> always a solution.
-## 2. Optimisation for ML
+# 2. Optimisation for ML
 **gradient**: partial derivates.
 **convex sets**: all points are connected with other points.
 **convex functions**: convex set and connection is contained in shape.
 **convexity rules**: linear is convex and concave. norm is convex. square is convex if $A$ is psd ($w^TAw$).
 **exact line search for step length/learning rate**: if i move only along given line, how far should i move to minimise?
-## 3. Polynomial regression and basis functions
+# 3. Polynomial regression and basis functions
 **map to higher-dimension linear regression**: $x \to \tilde{x}=(x^d,x^{d-1},…,x,1)^\top\in \mathbb{R}^{d+1}$.
 **mapping works for arbitrary function**: we can model anything theoretically. problem: over- and underfitting.
-## 4. Over-/Underfitting
+# 4. Over-/Underfitting
 **$k$-fold cross validation**: split data into blocks, use each block for validation once and others for training (train $k$ times).
 **regularization**: constrain magnitude/norm of model parameters. $\min_w{L(w)+\frac{\lambda}{2}||w||_2^2}$.
 **approach**: solve for many $\lambda$, k-fold cross validation for each (called regularization paths), pick best $\lambda^*$ (minimal validation error), train with $\lambda^*$.
 **Empirical (ERM) v. regularized risk minimization (RRM)**: without and with regularization.
-**Bias v. variance**: TODO
-## 5. More Regression
+**Bias v. variance**: high variance ($E[(f_n(x)-E[f_n(x)])^2]$) models have high model complexity and tend to overfit, but capture training data well. high bias ($E[f_n(x)]-f^*(x)$) models might underfit, but have small model complexity.
+**Feature scaling**: some methods are invariant to feature scaling, regularization is not. so always scale to [0,1] or [-1,1]. normalizing: center, then scale such that 2-norm is one.
+# 5. More Regression
 **Ridge regression**: least squares with 2-norm regulariser. solved via linear equations or gradient descent. Zero-ed gradient: $X^\top X+n\lambda I=X^\top y$.
 **LASSO**: sparse solutions (example: many genes, few patients for data). $\min_w{\frac{1}{2n}||Xw-y||_2^2+\lambda||w_||_1}$.
 **Elastic Net**: interpolation between ridge and lasso.
 **Robust regression**: loss insensitive to outliers. $min_w\frac{1}{n}||Xw-y||_1$. often with different regularizer than 1-norm.
-
+# 6. Maximum Likelihood Principle
+**Assumption**: **i**dentically & **i**ndependently **d**istributed.
+***M*aximum *L*ikelihood *E*stimator**: $\max_\theta p(\text{observation}|\theta)$.
+***M*aximum *A* *P*osteriori**: $\max_\theta p(\theta|\text{observation})=p(\text{observation})\frac{p(\theta)}{p(\text{observation})}$.
+**Bayes Law**: $p(A|B)=p(B|A)\frac{p(A)}{p(B)}$.
+**Risk minimization equivalence**: MLE = ERM. MAP = RRM. noise corresponds to regularizer. variance parameters $\sigma^2, \tau^2$ correspond to regularization parameter $\lambda$.
+**When to use what?**: different noise distributions and different parameter priors.
