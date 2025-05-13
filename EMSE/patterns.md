@@ -30,7 +30,7 @@ _Resuable design generalised from existing systems, provide shared vocabulary._
 **Factory**: *consistently create similar objects.* varying init states, tight coupling of creation and further manipulation. <u>separate object creation with factory, delegate creation, inheritance forces common structure.</u>
 **Abstract Factory**: *consistently create similar objects.* extends factory for different objects, enforce combination maintainably. <u>abstract factory calls many factory classes, delegate to astract factory, single object creation process.</u>
 # Documentation Patterns
-**Documentation**: Material produced for sharing knowledge of sofware with target human group.
+*Material produced for sharing knowledge of sofware with target human group.*
 **Landscape**: tutorials, how-to guides, explanation, reference (diátaxis framework).
 **Model Cards** (Mitchell et al.): standard framework for AI documentation.
 ## Content
@@ -44,3 +44,12 @@ mutable page layout: multiple programming languages, for example.
 runnable code example: CSS animation demo, for example.
 adapt content to user input: Select environment, for example.
 casdoc (interactive annotated code): inline docs.
+# Architectural Patterns
+*Result of consistent principles/techniques applied through all project phases, resilient in change, guidance through product lifetime.*
+**Components**: computational units, subsystems (databases, filters, layers, objects).
+**Connectors**: interactions between subsystems (method calls, pipes, events, shared data).
+## Layers
+
+## Blackboard
+
+## Model View Controller
