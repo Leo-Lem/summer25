@@ -71,3 +71,4 @@ _Interview/Survey, observation, scenario, use case, mockup_
 **Within- v. between-subjects**: each subject tries all treatments v. different subjects try different treatments. challenge is increased learning effects v. increased confounding factors. mitigated by balancing (varying order) for symmetric effects v. blocking (group subjects equally) for measurable factors.
 **Positivist and reductionist**: assume we can reduce complex phenomena to few variables. critical variables might be ignored.
 **Interaction effects**: variables together have effect that none has on its own.
+# User Involvement
