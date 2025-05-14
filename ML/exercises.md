@@ -45,8 +45,13 @@
 **Elastic Net**: interpolation between ridge and lasso.
 **Robust regression**: loss insensitive to outliers. $min_w\frac{1}{n}||Xw-y||_1$. often with different regularizer than 1-norm.
 # 6. Maximum Likelihood Principle
+**Gaussian/normal distribution**: bell curve, defined by mean $\mu[=0]$ and variance $\sigma^2[=1]$ (bracket values are standard normal distribution).
+**Closed-form solution**: explicit formula, no iteration, deterministic computation (inputs yield correct outputs directly).
 **Assumption**: **i**dentically & **i**ndependently **d**istributed.
 ***M*aximum *L*ikelihood *E*stimator**: $\max_\theta p(\text{observation}|\theta)$.
+- computation: With iid: $L(\theta)=\prod_{i=1}^n{p(t^i|\theta)}$. Plug in probability distribution (standard normal here) $L(\theta)=\prod_{i=1}^n{[\frac{1}{\sqrt{2\pi}}e^{-\frac{(t^i-\theta)^2}{2}}]}$. $\theta$ corresponds to the true value here and we are centering around this value (to estimate the likelihood). Simplify product to sum using $\log{L(\theta)}=:l(\theta)$. Derive for $\theta$, set equal to zero, solve for $\theta$.
+- Gauss yields mean (sum of squared differences minimized by mean). Laplace yields median (sum of absolute differences minimized by median).
+- Laplace is more robust against outliers (deviations grow linearly not squaredly).
 ***M*aximum *A* *P*osteriori**: $\max_\theta p(\theta|\text{observation})=p(\text{observation})\frac{p(\theta)}{p(\text{observation})}$.
 **Bayes Law**: $p(A|B)=p(B|A)\frac{p(A)}{p(B)}$.
 **Risk minimization equivalence**: MLE = ERM. MAP = RRM. noise corresponds to regularizer. variance parameters $\sigma^2, \tau^2$ correspond to regularization parameter $\lambda$.
