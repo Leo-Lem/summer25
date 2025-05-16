@@ -56,3 +56,16 @@
 **Bayes Law**: $p(A|B)=p(B|A)\frac{p(A)}{p(B)}$.
 **Risk minimization equivalence**: MLE = ERM. MAP = RRM. noise corresponds to regularizer. variance parameters $\sigma^2, \tau^2$ correspond to regularization parameter $\lambda$.
 **When to use what?**: different noise distributions and different parameter priors.
+# 7. Binary Classification
+*Predict yes or no, -1 or +1 $\to$ separate points by hyperplane (n-1 dimensional plane).*
+**Intuitive loss function**: $l(y,\hat{y})=\begin{cases}0 & \text{if } y = \hat{y} \\ 1 & \text{if } y \neq \hat{y} \end{cases}$. NP-hard because of the jump in the loss function $\to$ not differentiable and thus no gradient.
+**Logistic regression**: Use log loss instead $f(x)=\log{(1+\exp{(-y\cdot (x^\top w+b)}))}$.
+- **Misleading name**: No regression but actually classification.
+- **Logistic function**: smooth approximation of the step function. $p(y=1|x)=\frac{1}{1+\exp{(-(x^\top w+b))}}$.
+- **MLE**: Logistic regression is the MLE when using logistic function is used.
+**More loss functions**: Hinge $max(0,1-t)$. Squared hinge loss $max(0,1-t)^2$.
+**Support Vector Machines**: wiggle the hyperplane for more robust classifier $\to$ maximize margin between + and - points.
+- hard v. soft margin: no points inside margin v. allow small error.
+- constrained convex optimization problem $\to$ can be solved efficiently.
+- 2-norm regularizer and hinge loss leads to SVM.
+- dual: TODO
