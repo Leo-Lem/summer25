@@ -69,3 +69,4 @@
 - constrained convex optimization problem $\to$ can be solved efficiently.
 - 2-norm regularizer and hinge loss leads to SVM.
 - dual: TODO
+**Smoothmax**: lets logistic regression act like soft-margin SVM. Logistic regression is probabilistic, smooth-margin classifier, SVM impose strict geometric constraints.
