@@ -48,8 +48,41 @@ casdoc (interactive annotated code): inline docs.
 *Result of consistent principles/techniques applied through all project phases, resilient in change, guidance through product lifetime.*
 **Components**: computational units, subsystems (databases, filters, layers, objects).
 **Connectors**: interactions between subsystems (method calls, pipes, events, shared data).
+**Distributed Systems**: communication required. pros: economics, scalability, performance, reliability.
+**Peer-to-peer**: clients can be servers and vice-versa.
 ## Layers
-
-## Blackboard
-
+*Technical partitioning into layers.*
+**Closed** (opaque) layering: only access layer directly below. flexibility and maintainability.
+**Open** (transparent) layering: access all layers below. runtime efficiency.
+**System design**: define abstraction criterion, determine number of layers, name the layers and assign tasks, specify the services, refine the layering.
+**Object desig**n: interface (black-box: facade pattern, white-box: visible components), structure (bridge, strategy, partitioning), communication (push: n to n-1, pull: n-1 to n), decoupling (closed, callbacks with command pattern), error-handling (lowest possible layer, translate to more general errors for upper layers).
+**OSI 7 layers**: application (protocols for common activites), presentation (structure information and add semantics), session (dialog control and sync), transport (messages>packets and delivery guarentee), network (routing), data link (errors in bit sequences), physical (transmit bits).
+**Pros**: reusability of layers, standardization, low coupling, improved testability
+**Cons**: lower layer changes may propagate to higher layers, lower efficiency.
+## Repository/Blackboard
+*independent systems cooperate on common data structure. blackboard uses passive, opportunistic, decoupled knowledge sources which sync through the blackboard data.*
+**Realisation**: define problem, define solution space, identify knowledge sources, define blackboard, define control, implement knowledge sources.
+**Pros**: problem solving support, changeability and maintainability, faul tolerance and robustness.
+**Cons**: difficult to test, no guarenteed solution, difficult control strategy, high development effort.
 ## Model View Controller
+*user interface system with decoupled data access and presentation.*
+**Subsystems**: view (data presentation), model (data access), controller (mediator).
+**Compound pattern**: strategy, composite, factory, observer, mediator.
+## Client-Dispatcher-Server
+*Client-server, but use a name server for communication (decoupling servers and clients).*
+**Steps**: identify subsystems that act as clients and servers. decide on communication mechanisms. specify interaction protocols. decide on naming scheme. implement dispatcher. implement client/server.
+**Uses**: RPC by Sun, CORBA, UDDI.
+## Broker
+*Broker is responsible for communication and invokes remote services.*
+**Design goals**: location transparency, programming language independence, client/server decoupling, service/communication mechanism decoupling, runtime extensibiilty.
+**Core components**: client (accesses remote services), server (provides remote services via interface, eg, in JSON), broker (transmits requests/responses between client/server).
+**Local v. remote**: on client machine v. remote machine (eg, name server).
+**Proxies**: client-side (makes remote object appear local, hides communication details, marshalling/serialization of parameters/results). server-side (receive broker requests, hide communication details, unmarshalling/deseralization of parameters/results, call server services).
+**Bridge**: hide implementation details between two interoperating brokers.
+Steps: define object model, decide interoperability level, specify broker API, proxies for client/server access, design broker component (parallel to steps 3/4), define interface.
+# Testing Patterns
+
+# More Patterns
+## Quality Patterns
+## Collaboration Patterns
+## UX Patterns
