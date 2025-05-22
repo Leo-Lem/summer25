@@ -1,6 +1,6 @@
 [[ML/exercises.pdf|exercises]]
 [slides](ML/slides.pdf)
-# 0. Repeat Linear Algebra
+# Linear Algebra Basics
 **Norms**
 - 0-norm: non-zeros
 - 1-norm: sum
@@ -14,37 +14,21 @@
 **Rank**: output dimensions. linearly independent columns.
 **Gaussian elimination**: lower triangle. eliminate variables.
 **Matrix multiplication**: row x column.
-# 1. Least Squares Regression
-**Goal**: find best-fitting linear function. $\min_{\tilde{w}}{\sum_{i=1}^{n}{\frac{1}{2}\left((\tilde{x}^{(i)})^{\top}\tilde{w}-y^{(i)}\right)^2}}$ or $\min_{\tilde{w}}{{\frac{1}{2}||\tilde{X}\tilde{w}-y||}^2}$.
-**Bias integration**: into weights, $\tilde{x}$ column 1.
-**Weights**: influence of each parameter on result.
-**Offset**: general bias (or weight 0).
-**Mean squared error (MSE)**: $L=\frac{1}{2}(y-\hat{y})^2$.
-**Gradient**: $\nabla L=X^{\top}(Xw-y)$. Solve for 0: $(X^\top X)w=X^\top y$.
-**Runtime**: $O(d^3)$.
-**Intuition why there are always solutions**: minimising not eliminating loss -> always a solution.
-# 2. Optimisation for ML
+# Concepts
+## Optimisation
 **gradient**: partial derivates.
 **convex sets**: all points are connected with other points.
 **convex functions**: convex set and connection is contained in shape.
 **convexity rules**: linear is convex and concave. norm is convex. square is convex if $A$ is psd ($w^TAw$).
 **exact line search for step length/learning rate**: if i move only along given line, how far should i move to minimise?
-# 3. Polynomial regression and basis functions
-**map to higher-dimension linear regression**: $x \to \tilde{x}=(x^d,x^{d-1},…,x,1)^\top\in \mathbb{R}^{d+1}$.
-**mapping works for arbitrary function**: we can model anything theoretically. problem: over- and underfitting.
-# 4. Over-/Underfitting
+## Over-/Underfitting
 **$k$-fold cross validation**: split data into blocks, use each block for validation once and others for training (train $k$ times).
 **regularization**: constrain magnitude/norm of model parameters. $\min_w{L(w)+\frac{\lambda}{2}||w||_2^2}$.
 **approach**: solve for many $\lambda$, k-fold cross validation for each (called regularization paths), pick best $\lambda^*$ (minimal validation error), train with $\lambda^*$.
 **Empirical (ERM) v. regularized risk minimization (RRM)**: without and with regularization.
 **Bias v. variance**: high variance ($E[(f_n(x)-E[f_n(x)])^2]$) models have high model complexity and tend to overfit, but capture training data well. high bias ($E[f_n(x)]-f^*(x)$) models might underfit, but have small model complexity.
 **Feature scaling**: some methods are invariant to feature scaling, regularization is not. so always scale to [0,1] or [-1,1]. normalizing: center, then scale such that 2-norm is one.
-# 5. More Regression
-**Ridge regression**: least squares with 2-norm regulariser. solved via linear equations or gradient descent. Zero-ed gradient: $X^\top X+n\lambda I=X^\top y$.
-**LASSO**: sparse solutions (example: many genes, few patients for data). $\min_w{\frac{1}{2n}||Xw-y||_2^2+\lambda||w_||_1}$.
-**Elastic Net**: interpolation between ridge and lasso.
-**Robust regression**: loss insensitive to outliers. $min_w\frac{1}{n}||Xw-y||_1$. often with different regularizer than 1-norm.
-# 6. Maximum Likelihood Principle
+## Maximum Likelihood Principle
 **Gaussian/normal distribution**: bell curve, defined by mean $\mu[=0]$ and variance $\sigma^2[=1]$ (bracket values are standard normal distribution).
 **Closed-form solution**: explicit formula, no iteration, deterministic computation (inputs yield correct outputs directly).
 **Assumption**: **i**dentically & **i**ndependently **d**istributed.
@@ -56,16 +40,38 @@
 **Bayes Law**: $p(A|B)=p(B|A)\frac{p(A)}{p(B)}$.
 **Risk minimization equivalence**: MLE = ERM. MAP = RRM. noise corresponds to regularizer. variance parameters $\sigma^2, \tau^2$ correspond to regularization parameter $\lambda$.
 **When to use what?**: different noise distributions and different parameter priors.
-# 7. Binary Classification
+# Regression
+## Least Squares Regression
+**Goal**: find best-fitting linear function. $\min_{\tilde{w}}{\sum_{i=1}^{n}{\frac{1}{2}\left((\tilde{x}^{(i)})^{\top}\tilde{w}-y^{(i)}\right)^2}}$ or $\min_{\tilde{w}}{{\frac{1}{2}||\tilde{X}\tilde{w}-y||}^2}$.
+**Bias integration**: into weights, $\tilde{x}$ column 1.
+**Weights**: influence of each parameter on result.
+**Offset**: general bias (or weight 0).
+**Mean squared error (MSE)**: $L=\frac{1}{2}(y-\hat{y})^2$.
+**Gradient**: $\nabla L=X^{\top}(Xw-y)$. Solve for 0: $(X^\top X)w=X^\top y$.
+**Runtime**: $O(d^3)$.
+**Intuition why there are always solutions**: minimising not eliminating loss -> always a solution.
+## Polynomial regression and basis functions
+**map to higher-dimension linear regression**: $x \to \tilde{x}=(x^d,x^{d-1},…,x,1)^\top\in \mathbb{R}^{d+1}$.
+**mapping works for arbitrary function**: we can model anything theoretically. problem: over- and underfitting.
+## More Regression
+**Ridge regression**: least squares with 2-norm regulariser. solved via linear equations or gradient descent. Zero-ed gradient: $X^\top X+n\lambda I=X^\top y$.
+**LASSO**: sparse solutions (example: many genes, few patients for data). $\min_w{\frac{1}{2n}||Xw-y||_2^2+\lambda||w_||_1}$.
+**Elastic Net**: interpolation between ridge and lasso.
+**Robust regression**: loss insensitive to outliers. $min_w\frac{1}{n}||Xw-y||_1$. often with different regularizer than 1-norm.
+
+# Classification
+## Binary Classification
 *Predict yes or no, -1 or +1 $\to$ separate points by hyperplane (n-1 dimensional plane).*
 **Intuitive loss function**: $l(y,\hat{y})=\begin{cases}0 & \text{if } y = \hat{y} \\ 1 & \text{if } y \neq \hat{y} \end{cases}$. NP-hard because of the jump in the loss function
 	  $\to$ not differentiable and thus no gradient.
-**Logistic regression**: Use log loss instead $f(x)=\log{(1+\exp{(-y\cdot (x^\top w+b)}))}$.
+## Logistic regression
+*Use log loss instead $f(x)=\log{(1+\exp{(-y\cdot (x^\top w+b)}))}$.*
 - **Misleading name**: No regression but actually classification.
 - **Logistic function**: smooth approximation of the step function. $p(y=1|x)=\frac{1}{1+\exp{(-(x^\top w+b))}}$.
 - **MLE**: Logistic regression is the MLE when using logistic function is used.
 **More loss functions**: Hinge $max(0,1-t)$. Squared hinge loss $max(0,1-t)^2$.
-**Support Vector Machines**: wiggle the hyperplane for more robust classifier $\to$ maximize margin between + and - points.
+## Support Vector Machines
+*wiggle the hyperplane for more robust classifier $\to$ maximize margin between + and - points.*
 - hard v. soft margin: no points inside margin v. allow small error.
 - constrained convex optimization problem $\to$ can be solved efficiently.
 - 2-norm regularizer and hinge loss leads to SVM.
@@ -86,14 +92,10 @@
 **Smoothmax**: lets logistic regression act like soft-margin SVM. Logistic regression is probabilistic, smooth-margin classifier, SVM impose strict geometric constraints.
 **Linear $\to$ non-linear**: any linear can be transformed into non-linear with basis functions or kernels (2-norm regularizer).
 **Parametric v. non-parametric**: fixed number of parameter or not fixed a priori (depends on data points, is infinite, …).
-**Multi-classification**
+**Multiclass classification**
 - one-versus-rest (OvR): train for each class treating only that class as positive.
 - one-versus-one (OvO): train for each pair of classes.
 - direct methods: multinomial logistic regression, k-NN, …
-# 8.
-
-# 9.
-
-# 10.
-
-# 11.
+## k-Nearest Neighbor
+## Naive Bayes
+# Deep Learning
