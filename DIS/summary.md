@@ -1,4 +1,4 @@
-[exercise slides](exercise%20slides.pdf)
+[exercises](exercises.pdf)
 [slides](slides-11.pdf)
 # Architectures of Database Systems
 Relational model succeeded over network and hierarchical models.
