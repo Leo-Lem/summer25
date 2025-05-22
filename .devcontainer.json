@@ -1,5 +1,4 @@
 {
-  "image": "leolemm/latex-devcontainer:latest",
-  // fix packages not being installed
-  "postCreateCommand": "sudo tlmgr install silence xcolor docmute import pgf algorithm2e ifoddpage relsize float environ subfig caption && pip install -r ML/requirements.txt"
+  "image": "leolemm/uni-devcontainer:latest",
+  "postCreateCommand": "sudo tlmgr install silence xcolor docmute import pgf algorithm2e ifoddpage relsize float environ subfig caption"
 }
