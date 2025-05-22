@@ -1,0 +1,3 @@
+[submodule "DIS/exercise"]
+	path = DIS/exercise
+	url = https://github.com/HeLehm/DIS.git
