@@ -1,5 +1,4 @@
-[[ML/exercises.pdf|exercises]]
-[slides](ML/slides.pdf)
+[[ML/exercises.pdf|exercises]] | [slides](ML/slides.pdf)
 # Linear Algebra Basics
 **Norms**
 - 0-norm: non-zeros
@@ -97,5 +96,17 @@
 - one-versus-one (OvO): train for each pair of classes.
 - direct methods: multinomial logistic regression, k-NN, …
 ## k-Nearest Neighbor
+*similar datapoints should have similar labels. good first choice.*
+**algorithm**: find k nearest neighbors for point, (weighted/unweighted) majority vote of neighbor labels determines label, distance can use different measures.
+**choice of $k$**: small k can lead to overfitting, large to underfitting. optimal value depends. good value can be found using cross-validation.
+**advantages**: simple/easily understandable, no training, non-parametric (can handle complex decision boundaries), good at multiclass.
+**disadvantages**: computationally expensive for large datasets, sensitive to irrelevant features and noisy data.
+can also be used for regression.
 ## Naive Bayes
+*probabilistic algorithm based on Bayes' theorem.*
+**Naive assumption**: all features are conditionally independent given the class.
+**Bayes' theorem**: $p(A|B)=p(B|A)\frac{p(A)}{p(B)}$.
+**For many classes**: $p(y|x_1,x_2,,x_n)=P(y)\frac{P(x_1,x_2,,x_n|y)}{P(X_1,x_2,,x_n)}=P(y)\prod{P(x_i|y)}$. joint likelihood is product of individual likelihoods.
+Laplacian smoothing to prevent 0 probabilities (add 1 to the frequency of each $x_i$).
+**Different estimations of $p(x_i|y)$ lead to variants**: Multinomial NB, Gaussian NB, Binomial NB, …
 # Deep Learning
