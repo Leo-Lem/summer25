@@ -58,7 +58,8 @@
 **When to use what?**: different noise distributions and different parameter priors.
 # 7. Binary Classification
 *Predict yes or no, -1 or +1 $\to$ separate points by hyperplane (n-1 dimensional plane).*
-**Intuitive loss function**: $l(y,\hat{y})=\begin{cases}0 & \text{if } y = \hat{y} \\ 1 & \text{if } y \neq \hat{y} \end{cases}$. NP-hard because of the jump in the loss function $\to$ not differentiable and thus no gradient.
+**Intuitive loss function**: $l(y,\hat{y})=\begin{cases}0 & \text{if } y = \hat{y} \\ 1 & \text{if } y \neq \hat{y} \end{cases}$. NP-hard because of the jump in the loss function
+	  $\to$ not differentiable and thus no gradient.
 **Logistic regression**: Use log loss instead $f(x)=\log{(1+\exp{(-y\cdot (x^\top w+b)}))}$.
 - **Misleading name**: No regression but actually classification.
 - **Logistic function**: smooth approximation of the step function. $p(y=1|x)=\frac{1}{1+\exp{(-(x^\top w+b))}}$.
@@ -68,5 +69,31 @@
 - hard v. soft margin: no points inside margin v. allow small error.
 - constrained convex optimization problem $\to$ can be solved efficiently.
 - 2-norm regularizer and hinge loss leads to SVM.
-- dual: TODO
+- $\xi_i$: slack variable which allows margin of error.
+- $C$ balances large margin and violation terms: error budget.
+- dual: $w^*=\sum^n \alpha_i^*y_ix_i$ with dual solution $\alpha^*$. only when $\alpha_i>0$ the data point is impactful $\to$  support vector.
+	- $\alpha_i^*=0$: data point is outside the margin and correctly classified.
+	- $0<\alpha_ i^*<C$: data point is on correct margin.
+	- $\alpha_i^*=C$: data point is inside margin or on wrong side.
+**Non-linear SVM and kernels**: kernels are a shortcut for basis function trick (which is infeasible due to high number of basis functions)
+- kernel: implicit mapping of data to higher-dimensional space without need to compute embedding/feature map explicitly (kernel trick).
+- prove kernel function: $K(=k(x_i,x_j))\succeq 0$. If $K$ is psd then map $\Phi$ exists.
+- kernel function measures how similar two datapoints are in feature space.
+- linear $k=x_i^\top x_j$.
+- cosine similarity $k=\frac{x_i^\top x_j}{||x_i||\cdot ||x_j||}$.
+- Gaussian (or radial basis function RBF) $k=\exp(\frac{-||x_i-x_j||_2^2}{2\sigma^2})$.
+- Polynomial $k=(x_i^\top x_j+c)^s$.
 **Smoothmax**: lets logistic regression act like soft-margin SVM. Logistic regression is probabilistic, smooth-margin classifier, SVM impose strict geometric constraints.
+**Linear $\to$ non-linear**: any linear can be transformed into non-linear with basis functions or kernels (2-norm regularizer).
+**Parametric v. non-parametric**: fixed number of parameter or not fixed a priori (depends on data points, is infinite, …).
+**Multi-classification**
+- one-versus-rest (OvR): train for each class treating only that class as positive.
+- one-versus-one (OvO): train for each pair of classes.
+- direct methods: multinomial logistic regression, k-NN, …
+# 8.
+
+# 9.
+
+# 10.
+
+# 11.
