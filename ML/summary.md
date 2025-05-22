@@ -1,4 +1,4 @@
-[[ML/exercises.pdf|exercises]] | [slides](ML/slides.pdf)
+[exercises](exercises.pdf) | [slides](slides.pdf)
 # Linear Algebra Basics
 **Norms**
 - 0-norm: non-zeros
