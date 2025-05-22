@@ -109,4 +109,5 @@ can also be used for regression.
 **For many classes**: $p(y|x_1,x_2,,x_n)=P(y)\frac{P(x_1,x_2,,x_n|y)}{P(X_1,x_2,,x_n)}=P(y)\prod{P(x_i|y)}$. joint likelihood is product of individual likelihoods.
 Laplacian smoothing to prevent 0 probabilities (add 1 to the frequency of each $x_i$).
 **Different estimations of $p(x_i|y)$ lead to variants**: Multinomial NB, Gaussian NB, Binomial NB, …
+
 # Deep Learning
