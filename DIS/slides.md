@@ -78,18 +78,25 @@ Checkpoints: transaction-consistent (new transactions must wait), action-consist
 **3PC**: additional precommit phase (prepare to commit or abort, nodes acknowledge). Makes using new coordinator better. But has more messages and problems with network partitioning (network delays cause timeouts). very robust.
 **1PC**: direct commit decision. rarely used for distributed systems. very efficient.
 ## Optimizations
-Storage Layouts: row (tuple-wise) or collumn (attribute-wise).
-*N*ot-*o*nly-*SQL*: 
+**Storage Layouts**: row (tuple-wise) or collumn (attribute-wise).
+**Query execution plan optimizations**: relational algebra for internal representation, reduce data as early and cheap as possible, chosen sequence is final Query Execution Plan QEP.
+**Data processing models**
+- tuple-at-a-time: intermediate tuples not stored but passed directly to next operator $\to$ operators can be fused but other optimization are limited.
+- vector/block-at-a-time: vector/block of the column processed at once $\to$ operator fusion for small blocks, trade-off between operator fusion and memory access performance.
+- operator-at-a-time: whole operator processed at once $\to$ no operator fusion, high potential for optimizing memory reads.
+**User optimizations**
+- views: virtual tables to simplify complex queries.
+- indexes: trees or hashtables to quickly locate rows.
 ## NoSQL
+***N*ot-*o*nly-*SQL***
 **Big Data**: volume, variety, velocity, value, veracity (quality, bias).
-**Key-Value**: 
-**Graphs**: 
-**Document**: 
-**Timeseries, spatial, arrays**: 
-**Wide Table**:
+**BASE**: Basically Available, Soft state, Eventually consistent.
+**CAP**: only 2/3 of Consistency, Availability and Partition
+**Key-Value**: simple CRUD implementation, stores arbitrary keyed data. Log-structured Merge (LSM) Trees power many KV stores: buffer writes in--memory, flushes data as sorted runs, merge runs into larger runs (compaction).
+**Document**: KV with value being documents.
+**Wide Table**: database is collection of KV pairs with 3-part keys (row key, column key, timestamp). flexible schema may differ from row-to-row.
+**Graphs**: nodes (entities in ER) existing on their own with object identity. edges (relationships in ER) existing only between nodes and identiy depending on connected nodes.
+**Others**: timeseries, spatial, arrays, …
 # Data Warehouses and OLAP
-TODO
 # Data Mining
-TODO
 # Big Data Analytics
-TODO
