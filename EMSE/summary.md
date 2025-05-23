@@ -1,6 +1,5 @@
-[[requirements.pdf]]
-# Motivation
-_difficult to elicit good requirements, but fixing problems early is cheap._
+[requirements](requirements.pdf)
+*difficult to elicit good requirements, but fixing problems early is cheap.*
 # Requirements
 ### Types
 * functional: supported user tasks, system behaviour, interactions with environment.
@@ -20,16 +19,16 @@ _Desired properties/constraints and goals of the software, assumptions about env
 _schedule, negotiate, coordinate, document._
 * **Requirements Quality**: correctness, completeness, consistency, clarity, realism, traceability.
 * **Priority Aspects**: importance, cost, risk, time, financial, penalty.
-# Requirements Elicitation
+## Requirements Elicitation
 
 * **Soft skills**: analytics thinking, empathy, communication, conflict resolution, moderation, confidence, persuasiveness.
 * Discover needs and acquire knowledge about: stakeholders, expectations, current state, domain, tasks, system/context.
 * **Sources**: Stakeholders, documents, systems in production.
-## Stakeholders
+### Stakeholders
 _Involved in and affected by our project._
 * **Characteristics**: expectations, importance, their requirements.
 * **Population sampling**: non-probability (specific selection), probability (equal chance), convenience (easy access), sequential (iterative), snowball (subjects recommend subjects).
-## Methods
+### Methods
 _Interview/Survey, observation, scenario, use case, mockup_
 * **qualitative**: interviews, workshops, focus groups, case studies, observations.
 	* **interview**: use templates, iterate, dry runs, don't influence, scoped, active listening.
@@ -72,9 +71,27 @@ _Interview/Survey, observation, scenario, use case, mockup_
 **Positivist and reductionist**: assume we can reduce complex phenomena to few variables. critical variables might be ignored.
 **Interaction effects**: variables together have effect that none has on its own.
 # User Involvement
+*Improve understanding of user needs, users as productive resource, and give voice/avoid frustration.*
+**Principles**: early focus on users and tasks, empirical measurement, iterative design.
+**User classes**: favoured (main users, admins, …) v. disfavoured (hackers, …) v. indirect (website integration, …).
+**Product champions** handle: planning, requirements, validation, user aids, change management.
+**Personas**: fictional representative of user class.
+## Crowdsourcing requirements
+*revolutionise role of users, dissolve boundaries to SE, make processes and tools social.*
+**Socialness**: degree of involvement of users and communities in software lifecycle.
+- Community Involvement: size, activity, interweaving, attractiveness.
+- User involvement: quality, explicitness, time, means.
+Challenges: scalability, quality, authenticity, conflicts.
+**Liquid democracy**: combine direct and representative democracy with choice per vote (choose or be represented).
+**User voice**: limited number of votes, prioritise requests.
+**SNAIL** (break down into smaller and smaller parts.): user and community observation, proactive feedback, systematic analysis, engineering decision, update.
+## User Feedback
+**Types**: explicit (reviews, social media, …), implicit (interaction data, …).
+**Topics**: requirements, community, rating, user experience.
+**Use ML for automatic mining**: filter, allocate/assign, compare, track over time.
 
 ---
-[patterns.pdf](patterns.pdf)
+[patterns](patterns.pdf)
 # Patterns
 _3-part rule expressing relation between context, problem, and solution._
 * **Algorithm**s are defined sequence for solving problem. v. **Pattern**: general core of solution.
@@ -157,8 +174,21 @@ casdoc (interactive annotated code): inline docs.
 **Bridge**: hide implementation details between two interoperating brokers.
 Steps: define object model, decide interoperability level, specify broker API, proxies for client/server access, design broker component (parallel to steps 3/4), define interface.
 # Testing Patterns
-
-# More Patterns
 ## Quality Patterns
+*Quality cannot be defined formally.*
+**Errors**: made by developers (syntax, grammar, algorithmic).
+**Fault**: can cause improper functioning of the system.
+**Failure**: fault that becomes observable.
+**Smells**: Low level design problems, quick to identify, not always problematic.
+**Refactoring**: changes that do not change observable behaviour. depends on tests.
+**SOLID**: Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion.
+### Continuous Integration
+*merge working copies regularly, automatedly and enable continuous deployment.*
+**Build Patterns**: when? (for every change), how granular? (task-level), recognise? (tag/label).
+**Build Management patterns**: efficiency? (automate), automate? (scripts).
+**Build Quality Patterns**: baseline? (automated tests), stable? (smoke tests), not stable? (fail on project rule violation, notify).
+**Metrics**: code-level (object-oriented, static code attributes, churn metrics), business-level (cost/schedule, user satisfaction).
+Continuous Quality: Potential bugs, coding rules, duplications, complexity, test coverage, architecture/design, comments.
+# More Patterns
 ## Collaboration Patterns
 ## UX Patterns
