@@ -82,7 +82,9 @@
 	- $\alpha_i^*=C$: data point is inside margin or on wrong side.
 **Non-linear SVM and kernels**: kernels are a shortcut for basis function trick (which is infeasible due to high number of basis functions)
 - kernel: implicit mapping of data to higher-dimensional space without need to compute embedding/feature map explicitly (kernel trick).
+- Inner product/dot product $K(x,y)=\langle \Phi(x), \Phi(y) \rangle=\sum_{k=0}^{s}{\Phi(x)\cdot\Phi(y)}$.
 - prove kernel function: $K(=k(x_i,x_j))\succeq 0$. If $K$ is psd then map $\Phi$ exists.
+- scaling and adding psd matrices still stays psd.
 - kernel function measures how similar two datapoints are in feature space.
 - linear $k=x_i^\top x_j$.
 - cosine similarity $k=\frac{x_i^\top x_j}{||x_i||\cdot ||x_j||}$.
@@ -106,8 +108,9 @@ can also be used for regression.
 *probabilistic algorithm based on Bayes' theorem.*
 **Naive assumption**: all features are conditionally independent given the class.
 **Bayes' theorem**: $p(A|B)=p(B|A)\frac{p(A)}{p(B)}$.
-**For many classes**: $p(y|x_1,x_2,,x_n)=P(y)\frac{P(x_1,x_2,,x_n|y)}{P(X_1,x_2,,x_n)}=P(y)\prod{P(x_i|y)}$. joint likelihood is product of individual likelihoods.
-Laplacian smoothing to prevent 0 probabilities (add 1 to the frequency of each $x_i$).
-**Different estimations of $p(x_i|y)$ lead to variants**: Multinomial NB, Gaussian NB, Binomial NB, …
+**For many classes**: $p(y|x_1,x_2,,x_n)=P(y)\frac{P(x_1,x_2,,x_n|y)}{P(x_1,x_2,,x_n)}=P(y)\prod{P(x_i|y)}$. joint likelihood is product of individual likelihoods.
+**Laplacian smoothing**: to prevent 0 probabilities (add $\lambda$ to the frequency of each $x_i$).
+**Simple estimation**: $P(x_i|y)=\frac{\text{count}(x_i)+\lambda}{\text{count}(y)}$.
+**Different estimations of $p(x_i|y)$ lead to variants**: Bernoulli NB (for binary), Multinomial NB, Gaussian NB, Binomial NB, …
 
 # Deep Learning
