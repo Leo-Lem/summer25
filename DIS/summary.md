@@ -126,8 +126,6 @@ $\hookrightarrow$ **recovery**: redo only, reissue lost modifications.
 **Big Data**: volume, variety, velocity, value, veracity (quality, bias).
 **BASE**: Basically Available, Soft state, Eventually consistent.
 **CAP**: only 2/3 of Consistency, Availability and Partition
-**Key-Value**: simple CRUD implementation, stores arbitrary keyed data. Log-structured Merge (LSM) Trees power many KV stores: buffer writes in--memory, flushes data as sorted runs, merge runs into larger runs (compaction).
-Sorted String Table SST: 
 **Document**: KV with value being documents.
 **Wide Table**: database is collection of KV pairs with 3-part keys (row key, column key, timestamp). flexible schema may differ from row-to-row.
 **Graphs**: nodes (entities in ER) existing on their own with object identity. edges (relationships in ER) existing only between nodes and identiy depending on connected nodes.
@@ -142,6 +140,20 @@ Sorted String Table SST:
 | Graph DB        | Relationship-heavy, complex connections |
 | Time-Series DB  | Monitoring, sensors, real-time inserts  |
 | Search DB       | Full-text search, log analysis          |
+### Key-Value stores
+**simple CRUD implementation, stores arbitrary keyed data.**
+**Log-structured Merge (LSM) Trees** power many KV stores: buffer writes in-memory, flushes data as sorted runs, merge runs into larger runs (compaction).
+**Sorted String Table SST**: write data to separate string and use index for position as long as inserted data is increasing in index, otherwise new string and index.
+### Graph database
+**Types**: Property graph model, resource description framework, property graph query language (imitates sql).
+**Neo4j PGM**: Entity with properties, schema implicitly given with instances.
+**Representations**
+- Adjacency matrix: Aij=1 if there is an edge. very fast lookup. memory inefficient (sparseness).
+- Compress sparse row CSR: very compact O(V+E). efficient for parallelism.
+- triple table: subject, predicate, object.
+- vertex and edge table.
+- clustered property table: all properties of single node are stored together. lower compression and harder to optimise.
+- property-class table: separate table per node/edge type. better compression, stronger typing, but less flexible and harder to change.
 # Data Warehouses and OLAP
 # Data Mining
 # Big Data Analytics
