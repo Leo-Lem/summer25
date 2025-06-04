@@ -89,7 +89,33 @@ Challenges: scalability, quality, authenticity, conflicts.
 **Types**: explicit (reviews, social media, …), implicit (interaction data, …).
 **Topics**: requirements, community, rating, user experience.
 **Use ML for automatic mining**: filter, allocate/assign, compare, track over time.
-
+# Requirements Modeling
+**To better understand, communicate, explore, and reuse.**
+**Model**: abstract representation of reality.
+**Languages**: Natural (Gellish, …), semi-formal (UML, i*, …), formal (Z, VDM, …).
+**Perspectives**: structural -integration> functional -integration> behavioural -integration> …
+## Functional Modelling
+**Scenario**: concrete, focused, informal feature description (series of use cases).
+- As-is: current situation.
+- Visionary: future system.
+- Evaluation: compare alternatives.
+- …
+**Use case**: document specific functionality (planned or existing). diagram (UML).
+- Diagram (UML): actors and (inter)actions
+- Phrasing: verb phrase for use case title. not more than 1 page but complete. active voice. causal relationship. clear system boundaries.
+## Object Modelling
+**Find important abstractions iteratively.**
+**Find objects**
+1. identify classes: application domain (experts), syntactic (base on use cases), design patterns (apply design knowledge), component-based (existing solutions).
+	- Abbott's Technique: map grammatical structure to UML elements (proper noun>object, improper noun>class, …)
+2. identify attributes
+3. identify operations
+4. identify associations
+**Identify class types**
+- Entity: real world entities (e.g., customer, toy).
+- Control: real world procedures (e.g., shopping, recommendation).
+- Boundary: interface artefacts (e.g., shop).
+# 
 ---
 [patterns](patterns.pdf)
 # Patterns
