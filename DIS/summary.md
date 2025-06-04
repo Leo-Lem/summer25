@@ -97,7 +97,7 @@ $\hookrightarrow$ **recovery**: redo only, reissue lost modifications.
 - Shared nothing: each cluster has exclusive memory.
 - Shared everything: disk and main-memory is shared (*N*on-*U*niform *M*emory *A*ccess).
 - Federated Database: multiple databases connected to logical view. no direct sharing. not truly distributed.
-- Heterogenous federation: use different DBS.
+- Heterogenous federation: use different DBS. TODO: taxonomies
 ### Commit Protocols
 *robustness (non-blocking, abort late) v. efficiency (few messages, log entries).*
 **2-Phase-Commit**: prepare (coordinator sends prepare message, nodes vote), commit (coordinator sends commit or abort and nodes execute). robust-efficient compromise.
