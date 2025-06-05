@@ -39,6 +39,11 @@
 **Bayes Law**: $p(A|B)=p(B|A)\frac{p(A)}{p(B)}$.
 **Risk minimization equivalence**: MLE = ERM. MAP = RRM. noise corresponds to regularizer. variance parameters $\sigma^2, \tau^2$ correspond to regularization parameter $\lambda$.
 **When to use what?**: different noise distributions and different parameter priors.
+## Model comparison with significance test
+**Input**: two models and evaluation metric.
+$H_0$: both models perform equally well.
+**Likelihood of $H_0$** denoted by $p$.
+Permutation test to approximate $p$. target usually lower than .05 or .01 $\to$ can reject $H_0$.
 # Regression
 ## Least Squares Regression
 **Goal**: find best-fitting linear function. $\min_{\tilde{w}}{\sum_{i=1}^{n}{\frac{1}{2}\left((\tilde{x}^{(i)})^{\top}\tilde{w}-y^{(i)}\right)^2}}$ or $\min_{\tilde{w}}{{\frac{1}{2}||\tilde{X}\tilde{w}-y||}^2}$.
@@ -57,12 +62,16 @@
 **LASSO**: sparse solutions (example: many genes, few patients for data). $\min_w{\frac{1}{2n}||Xw-y||_2^2+\lambda||w_||_1}$.
 **Elastic Net**: interpolation between ridge and lasso.
 **Robust regression**: loss insensitive to outliers. $min_w\frac{1}{n}||Xw-y||_1$. often with different regularizer than 1-norm.
-
+## Evaluation
+**Mean squared error** $MSE=\frac1n\sum_{i=1}^n{(y_i-\hat{y}_i)^2}$. Penalise larger errors more than small ones. less interpretable due to square.
+**Root mean squared error** $RMSE=\sqrt{MSE}$. improves interpretability over MSE.
+**Mean absolute error** $MAE=\frac1n\sum_{i=1}^n{|y_i-\hat{y}_i|}$. more robust/less sensitive to individual errors.
+**Coefficient of Determination** $R^2=1-\frac{\sum{(y_i-\hat{y}_i)^2}}{\sum{(y_i-\bar{y})^2}}$. 1 means perfect prediction, 0 means same as predicting the mean, negative means worse performance that constant predictor.
 # Classification
 ## Binary Classification
 *Predict yes or no, -1 or +1 $\to$ separate points by hyperplane (n-1 dimensional plane).*
 **Intuitive loss function**: $l(y,\hat{y})=\begin{cases}0 & \text{if } y = \hat{y} \\ 1 & \text{if } y \neq \hat{y} \end{cases}$. NP-hard because of the jump in the loss function
-	  $\to$ not differentiable and thus no gradient.
+	$\to$ not differentiable and thus no gradient.
 ## Logistic regression
 *Use log loss instead $f(x)=\log{(1+\exp{(-y\cdot (x^\top w+b)}))}$.*
 - **Misleading name**: No regression but actually classification.
@@ -112,5 +121,38 @@ can also be used for regression.
 **Laplacian smoothing**: to prevent 0 probabilities (add $\lambda$ to the frequency of each $x_i$).
 **Simple estimation**: $P(x_i|y)=\frac{\text{count}(x_i)+\lambda}{\text{count}(y)}$.
 **Different estimations of $p(x_i|y)$ lead to variants**: Bernoulli NB (for binary), Multinomial NB, Gaussian NB, Binomial NB, …
-
-# Deep Learning
+## Decision Trees
+*Decision rules in tree structures, used for classification and regression.*
+**Mental model**: Partitioning input space into output values.
+**Recursive construction**
+- Determine best split at each node: classification error, GINI index, entropy, …
+- Check each dimension's (x, y, for example) best split and see which produces least error.
+**Properties**
+- NP-hard to determine optimal DT.
+- independent of feature scaling.
+- sensitive to small changes in data and rotation.
+- Prone to overfitting with small dataset.
+**Regression**: nodes represent constant functions, otherwise same approach as for classification.
+**Many algorithms**: ID3, C4.5, CART, …
+## Evaluation
+**Accuracy** $ACC=\frac{\text{number of correct predictions}}{\text{total number of predictions}}$. simple and intuitive, misleading for imbalanced classes.
+**Confusion matrix** (Contingency table): Actual against predicted counts (yields true/false positives/negatives).
+**Precision** $P=\frac{TP}{TP+FP}$. proportion of predicted positives that are true.
+**Recall** $R=\frac{TP}{TP+FN}$. proportion of actual positives that are predicted correctly.
+**F1 score** $F1=2\frac{P\cdot R}{P+R}$. harmonic mean of precision and recall.
+### Multi-class Averaging
+**Macro**: $\text{Macro}=\frac1K\sum_{k=1}^K{\text{Metric}_k}$. independent computation, average equally. treat all classes the same. useful when classes are equally important.
+**Micro**: $Micro=\text{Metric}_{\sum_k}$. aggregate TP/FP/FN, compute metric on totals. favour frequent classes. useful when overall performance is most important.
+# Learning
+## Ensemble Learning
+*Use different models and combine their results.*
+**Bootstrapping**: use multiple subsamples to create bootstrap estimators to get an indication of the estimator's distribution.
+**+Bagging**: aggregate the bootstrap estimators.
+**Random Forest**: construct individual DTs with bootstrap subsamples.
+- Predict: obtain all predictions and majority vote (classification) or average (regression).
+- Parameters (generally not too important, as RF are relatively stable)
+	- number $m$ of subsamples (for sampling with replacement $m=n$).
+	- number $p$ of dimensions (usually $d/3$).
+	- $n_{min}=1$ so the tree becomes deep (leads to individual overfitting, but reduce by bagging).
+- 
+## Deep Learning
