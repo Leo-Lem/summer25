@@ -154,5 +154,4 @@ can also be used for regression.
 	- number $m$ of subsamples (for sampling with replacement $m=n$).
 	- number $p$ of dimensions (usually $d/3$).
 	- $n_{min}=1$ so the tree becomes deep (leads to individual overfitting, but reduce by bagging).
-- 
 ## Deep Learning
