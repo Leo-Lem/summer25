@@ -143,6 +143,13 @@ can also be used for regression.
 ### Multi-class Averaging
 **Macro**: $\text{Macro}=\frac1K\sum_{k=1}^K{\text{Metric}_k}$. independent computation, average equally. treat all classes the same. useful when classes are equally important.
 **Micro**: $Micro=\text{Metric}_{\sum_k}$. aggregate TP/FP/FN, compute metric on totals. favour frequent classes. useful when overall performance is most important.
+## Prior knowledge
+**Feature engineering**: e.g., combine age+BMI into metabolic risk feature based on clinical knowledge.
+**Synthetic data**: e.g., if certain symptoms indicate disease, create examples of that in data.
+Encode knowledge in model: monotonic constraints in gradient boosting (price increases with size, for example).
+**Bayesian priors**: in Naive Bayes base prior class probabilities on distributions.
+**Regularisation with priors**: L1/L2 regularisation encodes prior knowledge that features are sparse.
+**Rule-based/hybrid models**: first apply linguistic rule, then classifier (in NLP).
 # Learning
 ## Ensemble Learning
 *Use different models and combine their results.*
