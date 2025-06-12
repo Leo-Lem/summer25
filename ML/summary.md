@@ -17,7 +17,7 @@
 ## Optimisation
 **gradient**: partial derivates.
 **convex sets**: all points are connected with other points.
-**convex functions**: convex set and connection is contained in shape.
+**convex functions**: convex set and connection is contained in shape. compute second derivative and check if > 0.
 **convexity rules**: linear is convex and concave. norm is convex. square is convex if $A$ is psd ($w^TAw$).
 **exact line search for step length/learning rate**: if i move only along given line, how far should i move to minimise?
 ## Over-/Underfitting
