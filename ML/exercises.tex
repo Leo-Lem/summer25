@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage[solutions]{xrcise}
+\usepackage[]{xrcise}
 
 \subject{Machine Learning}
 \semester{Summer 2025}
@@ -26,7 +26,7 @@
         \item Can be used to avoid overfitting
         \item Can be used to avoid underfitting
       \end{itemize}
-    \item Which statements are true about the KNN algorithm?
+    \item Which statements are true about the k-NN algorithm?
       \begin{itemize}
         \item Increasing $k$ increases model variance
         \item Increasing $k$ increases model bias
@@ -76,6 +76,12 @@
     \item What is the base assumption (inductive bias) about your data if you use an SVM?
     \item How do Hard-margin SVMs differ from Soft-margin SVMs?
     \item Given the plot, draw the decision boundaries for a hard margin and a soft margin SVM and mark them properly.
+      \begin{figure}
+        \centering
+        \includegraphics[width=0.5\textwidth]{res/svm_decision_boundary.png}
+        \caption{Decision boundaries for SVMs}
+        \label{fig:svm_decision_boundary}
+      \end{figure}
   \end{enumerate}
 
   \begin{solution}
@@ -88,7 +94,11 @@
 \end{exercise}
 
 \begin{exercise}{Covariance and Kernel Matrix}
-  You are given the three data points (0,1), (1,-2), (-1,1). Compute the covariance matrix and the kernel matrix (aka Gram matrix). In general, what are the dimensions of the Covariance Matrix and the Kernel Matrix for an input Matrix of $n \times d$?
+  You are given the three data points (0,1), (1,-2), (-1,1).
+  \begin{enumerate}
+    \item Compute the covariance matrix and the kernel matrix (aka Gram matrix).
+    \item In general, what are the dimensions of the Covariance Matrix and the Kernel Matrix for an input Matrix of $n \times d$?
+  \end{enumerate}
 
   \begin{solution}
     The covariance matrix is:
@@ -111,7 +121,7 @@
   \end{solution}
 \end{exercise}
 
-\begin{exercise}{Isomap and Ridge Regression}
+\begin{exercise}{Isomap}
   \begin{enumerate}
     \item What is the objective of isomap and how does it differ from PCA? (2 sentences)
     \item Describe the steps of the isomap algorithm (3 sentences).

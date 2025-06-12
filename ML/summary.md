@@ -22,11 +22,11 @@
 **exact line search for step length/learning rate**: if i move only along given line, how far should i move to minimise?
 ## Over-/Underfitting
 **$k$-fold cross validation**: split data into blocks, use each block for validation once and others for training (train $k$ times).
-**regularization**: constrain magnitude/norm of model parameters. $\min_w{L(w)+\frac{\lambda}{2}||w||_2^2}$.
-**approach**: solve for many $\lambda$, k-fold cross validation for each (called regularization paths), pick best $\lambda^*$ (minimal validation error), train with $\lambda^*$.
-**Empirical (ERM) v. regularized risk minimization (RRM)**: without and with regularization.
+**regularisation**: constrain magnitude/norm of model parameters. $\min_w{L(w)+\frac{\lambda}{2}||w||_2^2}$.
+**approach**: solve for many $\lambda$, k-fold cross validation for each (called regularisation paths), pick best $\lambda^*$ (minimal validation error), train with $\lambda^*$.
+**Empirical (ERM) v. regularised risk minimisation (RRM)**: without and with regularisation.
 **Bias v. variance**: high variance ($E[(f_n(x)-E[f_n(x)])^2]$) models have high model complexity and tend to overfit, but capture training data well. high bias ($E[f_n(x)]-f^*(x)$) models might underfit, but have small model complexity.
-**Feature scaling**: some methods are invariant to feature scaling, regularization is not. so always scale to [0,1] or [-1,1]. normalizing: center, then scale such that 2-norm is one.
+**Feature scaling**: some methods are invariant to feature scaling, regularisation is not. so always scale to [0,1] or [-1,1]. normalising: center, then scale such that 2-norm is one.
 ## Maximum Likelihood Principle
 **Gaussian/normal distribution**: bell curve, defined by mean $\mu[=0]$ and variance $\sigma^2[=1]$ (bracket values are standard normal distribution).
 **Closed-form solution**: explicit formula, no iteration, deterministic computation (inputs yield correct outputs directly).
@@ -37,13 +37,18 @@
 - Laplace is more robust against outliers (deviations grow linearly not squaredly).
 ***M*aximum *A* *P*osteriori**: $\max_\theta p(\theta|\text{observation})=p(\text{observation})\frac{p(\theta)}{p(\text{observation})}$.
 **Bayes Law**: $p(A|B)=p(B|A)\frac{p(A)}{p(B)}$.
-**Risk minimization equivalence**: MLE = ERM. MAP = RRM. noise corresponds to regularizer. variance parameters $\sigma^2, \tau^2$ correspond to regularization parameter $\lambda$.
+**Risk minimisation equivalence**: MLE = ERM. MAP = RRM. noise corresponds to regularizer. variance parameters $\sigma^2, \tau^2$ correspond to regularization parameter $\lambda$.
 **When to use what?**: different noise distributions and different parameter priors.
 ## Model comparison with significance test
 **Input**: two models and evaluation metric.
 $H_0$: both models perform equally well.
 **Likelihood of $H_0$** denoted by $p$.
 Permutation test to approximate $p$. target usually lower than .05 or .01 $\to$ can reject $H_0$.
+## Discriminative v. Generative
+Discriminative models find decision boundary: $p(y|x)$.
+Generative models find distribution: $p(x,y)$. can be used to generate new data points.
+Quadratic Discriminant Analysis (QDA): TODO
+Linear Discriminant Analysis (LDA): TODO
 # Regression
 ## Least Squares Regression
 **Goal**: find best-fitting linear function. $\min_{\tilde{w}}{\sum_{i=1}^{n}{\frac{1}{2}\left((\tilde{x}^{(i)})^{\top}\tilde{w}-y^{(i)}\right)^2}}$ or $\min_{\tilde{w}}{{\frac{1}{2}||\tilde{X}\tilde{w}-y||}^2}$.
@@ -161,4 +166,7 @@ Encode knowledge in model: monotonic constraints in gradient boosting (price inc
 	- number $m$ of subsamples (for sampling with replacement $m=n$).
 	- number $p$ of dimensions (usually $d/3$).
 	- $n_{min}=1$ so the tree becomes deep (leads to individual overfitting, but reduce by bagging).
+## Unsupervised Learning
+k-means
+TODO
 ## Deep Learning
