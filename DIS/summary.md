@@ -1,5 +1,4 @@
-[exercises](exercises.pdf)
-[slides](slides-13.pdf)
+[exercises](exercises.pdf) | [slides](slides-14.pdf)
 # Architectures of Database Systems
 Relational model succeeded over network and hierarchical models.
 **5-layer model**: (hardware) | file system (paged files), buffer (page replacement and materialization strategy, logging/backup/recovery), storage (record/free page management, physical access paths), access system (system catalog, record format, logical access paths), data system (parsing, plan generation, optimization and execution) | (application)
@@ -154,6 +153,18 @@ $\hookrightarrow$ **recovery**: redo only, reissue lost modifications.
 - vertex and edge table.
 - clustered property table: all properties of single node are stored together. lower compression and harder to optimise.
 - property-class table: separate table per node/edge type. better compression, stronger typing, but less flexible and harder to change.
+**Concepts**: path, simple path (no cycles), cliques (fully edge-connected), cycle, subgraph, connected components (path between every pair of vertices).
+- **Degree** (Valency): in/out edges of vertex.
+- **Distance**: number of edges in shortest path.
+**Patterns** in neo4j (match subgraphs)
+- Vertex: ()
+- Edge: --(>)
+- Graph ()-->()<--()
+**Queries**
+- MATCH: specify subgraph to return.
+- OPTIONAL MATCH: null-columns for non-matched, but return row.
+- WHERE: filter results (because MATCH does not support everything like inequality).
+- Projection: map the results.
 # Data Warehouses and OLAP
 # Data Mining
 # Big Data Analytics
