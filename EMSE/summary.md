@@ -199,7 +199,7 @@ casdoc (interactive annotated code): inline docs.
 **Proxies**: client-side (makes remote object appear local, hides communication details, marshalling/serialization of parameters/results). server-side (receive broker requests, hide communication details, unmarshalling/deseralization of parameters/results, call server services).
 **Bridge**: hide implementation details between two interoperating brokers.
 Steps: define object model, decide interoperability level, specify broker API, proxies for client/server access, design broker component (parallel to steps 3/4), define interface.
-# Testing Patterns
+# Testing & Quality Patterns
 ## Quality Patterns
 *Quality cannot be defined formally.*
 **Errors**: made by developers (syntax, grammar, algorithmic).
@@ -215,6 +215,8 @@ Steps: define object model, decide interoperability level, specify broker API, p
 **Build Quality Patterns**: baseline? (automated tests), stable? (smoke tests), not stable? (fail on project rule violation, notify).
 **Metrics**: code-level (object-oriented, static code attributes, churn metrics), business-level (cost/schedule, user satisfaction).
 Continuous Quality: Potential bugs, coding rules, duplications, complexity, test coverage, architecture/design, comments.
+## Testing Patterns
+
 # More Patterns
 ## Collaboration Patterns
 ## UX Patterns
