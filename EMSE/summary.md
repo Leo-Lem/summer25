@@ -216,6 +216,26 @@ Steps: define object model, decide interoperability level, specify broker API, p
 **Metrics**: code-level (object-oriented, static code attributes, churn metrics), business-level (cost/schedule, user satisfaction).
 Continuous Quality: Potential bugs, coding rules, duplications, complexity, test coverage, architecture/design, comments.
 ## Testing Patterns
+### Unit Testing
+*Developers confirm that individual component works as expected.*
+Concepts
+- **Software under test** (SUT): unit of interest.
+- **Test case**: description of test to be performed. Includes input data and oracle mechanism (pass/fail).
+- **Test harness**: framework for running tests under varying conditions and monitoring. Includes test driver and reporting.
+**FIRST**: fast, independent, repeatable, self-validating, thorough.
+**AAA**: arrange, act, assert.
+**for MVC**: view-state test and model-state test.
+**JUnit**: Java testing framework.
+**Mock Object Pattern**: Observability and controllability difficult due to dependencies $\to$ Mocking.
+**Dependency Injection**: low coupling but high cohesion.
+### System Testing
+*Developers confirm that interfaces among subsystems work as expected.*
+
+### Integration Testing
+*Developers confirm system meets the (non-)functional requirements.*
+
+### Acceptance Testing
+*Clients confirm system meets the requirements and is ready to use.*
 
 # More Patterns
 ## Collaboration Patterns
