@@ -47,8 +47,9 @@ Permutation test to approximate $p$. target usually lower than .05 or .01 $\to$ 
 ## Discriminative v. Generative
 Discriminative models find decision boundary: $p(y|x)$.
 Generative models find distribution: $p(x,y)$. can be used to generate new data points.
-Quadratic Discriminant Analysis (QDA): TODO
-Linear Discriminant Analysis (LDA): TODO
+Gaussian MLE (assume Gaussian distribution)
+- Linear Discriminant Analysis (LDA): shared covariance matrix.
+- Quadratic Discriminant Analysis (QDA): different covariance matrix per class.
 # Regression
 ## Least Squares Regression
 **Goal**: find best-fitting linear function. $\min_{\tilde{w}}{\sum_{i=1}^{n}{\frac{1}{2}\left((\tilde{x}^{(i)})^{\top}\tilde{w}-y^{(i)}\right)^2}}$ or $\min_{\tilde{w}}{{\frac{1}{2}||\tilde{X}\tilde{w}-y||}^2}$.
@@ -167,6 +168,17 @@ Encode knowledge in model: monotonic constraints in gradient boosting (price inc
 	- number $p$ of dimensions (usually $d/3$).
 	- $n_{min}=1$ so the tree becomes deep (leads to individual overfitting, but reduce by bagging).
 ## Unsupervised Learning
-k-means
-TODO
+*Find structure in unlabelled dataset.*
+**Approaches**: clustering, dimensionality reduction, anomaly detection, density estimation.
+### k- means
+*group data into k clusters with centres $\mu_i$. Non-convex optimisation.*
+**Lloyd's algorithm**
+1. start with random centres.
+2. assign all points to closest center.
+3. define new centres as mean vectors of current clusters. back to 2.
+**Termination**: finite number of iterations or end at local minimum (arbitrarily bad solution possible).
+**Refined initialisation**: use simpler clustering algorithm for initial means.
+**In practice**: run often with different parameters and pick best.
+k-means leads to Voronoi partition.
+Many variants exist.
 ## Deep Learning
