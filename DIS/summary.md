@@ -1,5 +1,5 @@
-[exercises](exercises.pdf) | [slides](slides-14.pdf)
-# Architectures of Database Systems
+[exercises](exercises.pdf) | [slides](slides-15.pdf)
+# Database System Architectures
 Relational model succeeded over network and hierarchical models.
 **5-layer model**: (hardware) | file system (paged files), buffer (page replacement and materialization strategy, logging/backup/recovery), storage (record/free page management, physical access paths), access system (system catalog, record format, logical access paths), data system (parsing, plan generation, optimization and execution) | (application)
 ACID properties of transactions: atomicity (all or nothing), consistency (success means integrity), isolation (logical single user mode), durability (modified data must survive failure).
@@ -9,7 +9,7 @@ ACID properties of transactions: atomicity (all or nothing), consistency (succes
 **Full Redundancy**: each instance saved in every table.
 **Single Table**: non-existing attributes nulled, discriminator column for type.
 
-# Transaction Management: Synchronisation, Logging & Recovery
+# Transaction Management
 ## Anomalies
 **lost update**: T2 update overwrites T1 update $\to$ locking, update validation.
 **dirty read**: T2 reads uncommitted value after T1 update $\to$ read data only after commit.
@@ -165,6 +165,32 @@ $\hookrightarrow$ **recovery**: redo only, reissue lost modifications.
 - OPTIONAL MATCH: null-columns for non-matched, but return row.
 - WHERE: filter results (because MATCH does not support everything like inequality).
 - Projection: map the results.
-# Data Warehouses and OLAP
+# Data Warehouses
+_Enable (analytic) access to consistent data in centralised database with extraction and multi-stage loading of integrated (and historicised) data for analytical tools._
+**Steps of descriptive statistics**: data recording (raw data), preparation (processed raw data), and analysis (enriched data, aggregates, macrocosmos).
+**Characteristics**: analysis-orientation, integration of different sources, no user updates, historic data.
+**Non-volatile data**: no deletion, only flag to keep history.
+**Basic architecture**
+- **Data transformation**: Extract, Transform, Load (ETL)
+- **Data consolidation:** integrated database, not specifically modelled so no optimisations for schemas or physical database.
+- **Data provisioning**: dispositive database, optimised for analysis
+	- Star schema: central fact table with denormalised dimension tables.
+	- Snowflake schema: central fact table with normalised dimension tables (each datum stored only once).
+- Data Marts: related subset derived from main DWH.
+	- dependent (redundant)
+	- independent.
+**Lambda architecture**
+- Batch layer: store all historical data and compute batch views.
+- Speed layer: process real-time data for fast updates.
+- Serving layer: expose combined results to end-users.
+**Logical DWH**: combine DWH RDBMS with data lakes virtually.
+**Multidimensional(-Cube) tables**: for online analytical processing (OLAP), data mining, visualisation.
+- Dimensions (descriptive information): cube edges.
+- Facts (quantified information): cube cells.
+- Characteristics of summability: disjointness, completeness.
+- Summation types
+	- flow (event at time T): can be aggregated freely, usually things per time.
+	- stock (status at time T): can be aggregated freely, but not temporally.
+	- value-per-unit VPU: can be summed (except for min/max/avg).
 # Data Mining
-# Big Data Analytics
+# Big Data
