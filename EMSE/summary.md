@@ -115,6 +115,27 @@ Challenges: scalability, quality, authenticity, conflicts.
 - Entity: real world entities (e.g., customer, toy).
 - Control: real world procedures (e.g., shopping, recommendation).
 - Boundary: interface artefacts (e.g., shop).
+## Dynamic Modeling
+_Describe components with interesting dynamic behaviour._
+**Sequence diagrams**: interaction between objects.
+- Elements: object, lifeline, activation box, actor, messages.
+- Detect operations: flow of events in use case. Find sender and receiver for event.
+- Fork diagram: usually control object, knows all other objects and uses them.
+- Stair diagram: each object delegates to other objects, only knows a few others.
+- Identify temporal relationships.
+**State diagrams**: one for each interesting class.
+- State machines: Moore and Mealy.
+- Elements: state, event connectors with guards.
+- State: particular condition at a specific time.
+- Identify changes to individual object over time.
+## Validation and Verification
+**Validation** (what): building right system? stakeholders agree?
+- Goal analysis: use cases satisfy requirements?
+- Robustness analysis: class model satisfies use cases?
+- Consistency checking: code corresponds to model?
+- Techniques and tools: completeness, consistency, refinement, model checking.
+- Review: correct? complete? consistent? unambiguous? realistic?
+**Verification** (how): building system right? design/implementation meet requirements?
 # 
 ---
 [patterns](patterns.pdf)
