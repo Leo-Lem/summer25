@@ -218,7 +218,7 @@
 
 \sheet[2023]{First Exam}
 
-\begin{exercise}{Multiple-Choice Questions}
+\begin{exercise}{Multiple Choice}
   Answer each statement with True or False (any number of statements may be true or false).
   
   \begin{enumerate}
@@ -331,7 +331,7 @@
   \begin{solution}
     \textbf{ERM} seeks to minimize the average loss over the training set.  
     \textbf{Maximum likelihood (ML)} selects parameters that maximize the likelihood of observed data under a probabilistic model.  
-    If the chosen loss is the negative log-likelihood, then ERM is equivalent to ML, meaning both frameworks align exactly under that model.
+    If the chosen loss is the negative log-likelihood, then ERM is equivalent to MLE, meaning both frameworks align exactly under that model.
   \end{solution}
 \end{exercise}
 
@@ -364,14 +364,15 @@
 \begin{exercise}{Python Snippet for Ridge Regression}
   Consider the following Python code:
 
-  \medskip
-  \texttt{def foo(X, y, alpha):}\\
-  \texttt{\ \ m,n = X.shape}\\
-  \texttt{\ \ th = np.random.randn(1,n)}\\
-  \texttt{\ \ for \_ in range(1000):}\\
-  \texttt{\ \ \ \ u = 2/m * X.T.dot(X.dot(th) - y) + 2 * alpha * th}\\
-  \texttt{\ \ \ \ th -= 1e-3 * u}\\
-  \texttt{\ \ return th}\\
+  \begin{verbatim}
+  def foo(X, y, alpha):
+    m, n = X.shape
+    th = np.random.randn(1, n)
+    for _ in range(1000):
+      u = 2/m * X.T.dot(X.dot(th) - y) + 2 * alpha * th
+      th -= 1e-3 * u
+    return th
+  \end{verbatim}
 
   What problem is being solved, and what do the variables represent?
 

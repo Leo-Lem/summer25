@@ -24,6 +24,7 @@
 **$k$-fold cross validation**: split data into blocks, use each block for validation once and others for training (train $k$ times).
 **regularisation**: constrain magnitude/norm of model parameters. $\min_w{L(w)+\frac{\lambda}{2}||w||_2^2}$.
 **approach**: solve for many $\lambda$, k-fold cross validation for each (called regularisation paths), pick best $\lambda^*$ (minimal validation error), train with $\lambda^*$.
+Empirical risk minimisation ERM: minimise average loss over training data.
 **Empirical (ERM) v. regularised risk minimisation (RRM)**: without and with regularisation.
 **Bias v. variance**: high variance ($E[(f_n(x)-E[f_n(x)])^2]$) models have high model complexity and tend to overfit, but capture training data well. high bias ($E[f_n(x)]-f^*(x)$) models might underfit, but have small model complexity.
 **Feature scaling**: some methods are invariant to feature scaling, regularisation is not. so always scale to [0,1] or [-1,1]. normalising: center, then scale such that 2-norm is one.
@@ -35,6 +36,7 @@
 - computation: With iid: $L(\theta)=\prod_{i=1}^n{p(t^i|\theta)}$. Plug in probability distribution (standard normal here) $L(\theta)=\prod_{i=1}^n{[\frac{1}{\sqrt{2\pi}}e^{-\frac{(t^i-\theta)^2}{2}}]}$. $\theta$ corresponds to the true value here and we are centering around this value (to estimate the likelihood). Simplify product to sum using $\log{L(\theta)}=:l(\theta)$. Derive for $\theta$, set equal to zero, solve for $\theta$.
 - Gauss yields mean (sum of squared differences minimized by mean). Laplace yields median (sum of absolute differences minimized by median).
 - Laplace is more robust against outliers (deviations grow linearly not squaredly).
+- MLE is ERM with negative log-likelihood loss.
 ***M*aximum *A* *P*osteriori**: $\max_\theta p(\theta|\text{observation})=p(\text{observation})\frac{p(\theta)}{p(\text{observation})}$.
 **Bayes Law**: $p(A|B)=p(B|A)\frac{p(A)}{p(B)}$.
 **Risk minimisation equivalence**: MLE = ERM. MAP = RRM. noise corresponds to regularizer. variance parameters $\sigma^2, \tau^2$ correspond to regularization parameter $\lambda$.
@@ -156,6 +158,11 @@ Encode knowledge in model: monotonic constraints in gradient boosting (price inc
 **Bayesian priors**: in Naive Bayes base prior class probabilities on distributions.
 **Regularisation with priors**: L1/L2 regularisation encodes prior knowledge that features are sparse.
 **Rule-based/hybrid models**: first apply linguistic rule, then classifier (in NLP).
+## Loss functions
+L1 loss: absolute deviation $\hat{y}-y$
+L2 loss: squared deviation $(\hat{y}-y)^2$
+Hinge loss (for labels $-1:1$): $\max{(0, 1-\hat{y}\cdot y)}$.
+Logistic loss (for labels $0:1$): $\log{(1+\exp{(-y\cdot (x^\top w+b)}))}$.
 # Learning
 ## Ensemble Learning
 *Use different models and combine their results.*
