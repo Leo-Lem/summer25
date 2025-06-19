@@ -52,6 +52,18 @@ Generative models find distribution: $p(x,y)$. can be used to generate new data 
 Gaussian MLE (assume Gaussian distribution)
 - Linear Discriminant Analysis (LDA): shared covariance matrix.
 - Quadratic Discriminant Analysis (QDA): different covariance matrix per class.
+## Principal Component Analysis
+_Technique to reduce the dimension of a dataset in $\mathbb{R}^d$ by linear projections._
+**Covariance matrix approach**: maximise variance of reduced (projected) data.
+- assume the points are centred, otherwise center with $\tilde{x}_i=x_i-\bar{x}$.
+- project data on the space spanned by the eigenvectors of the $l$ largest eigenvalues of the covariance matrix $X^\top X$.
+- eigenvectors are called principal components (or axes/directions).
+- reconstruction or projection error: distance between point and projection.
+**SVD approach**: minimise squared error. leads to same solution.
+**Outliers**: optimise global criteria, no guaranty for individual points, sensitive to outliers.
+**Use case**: works best for Gaussian.
+**Applications**: dimensionality reduction, data visualisation, noise filtering, feature extraction.
+Kernel PCA: use kernel trick for non-linear principal components.
 # Regression
 ## Least Squares Regression
 **Goal**: find best-fitting linear function. $\min_{\tilde{w}}{\sum_{i=1}^{n}{\frac{1}{2}\left((\tilde{x}^{(i)})^{\top}\tilde{w}-y^{(i)}\right)^2}}$ or $\min_{\tilde{w}}{{\frac{1}{2}||\tilde{X}\tilde{w}-y||}^2}$.
