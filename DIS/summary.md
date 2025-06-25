@@ -1,4 +1,4 @@
-[exercises](exercises.pdf) | [slides](slides-15.pdf)
+[exercises](exercises.pdf) | [slides](slides-17.pdf)
 # Database System Architectures
 Relational model succeeded over network and hierarchical models.
 **5-layer model**: (hardware) | file system (paged files), buffer (page replacement and materialization strategy, logging/backup/recovery), storage (record/free page management, physical access paths), access system (system catalog, record format, logical access paths), data system (parsing, plan generation, optimization and execution) | (application)
@@ -174,8 +174,6 @@ _Enable (analytic) access to consistent data in centralised database with extrac
 - **Data transformation**: Extract, Transform, Load (ETL)
 - **Data consolidation:** integrated database, not specifically modelled so no optimisations for schemas or physical database.
 - **Data provisioning**: dispositive database, optimised for analysis
-	- Star schema: central fact table with denormalised dimension tables.
-	- Snowflake schema: central fact table with normalised dimension tables (each datum stored only once).
 - Data Marts: related subset derived from main DWH.
 	- dependent (redundant)
 	- independent.
@@ -184,6 +182,7 @@ _Enable (analytic) access to consistent data in centralised database with extrac
 - Speed layer: process real-time data for fast updates.
 - Serving layer: expose combined results to end-users.
 **Logical DWH**: combine DWH RDBMS with data lakes virtually.
+## Data cubes
 **Multidimensional(-Cube) tables**: for online analytical processing (OLAP), data mining, visualisation.
 - Dimensions (descriptive information): cube edges.
 - Facts (quantified information): cube cells.
@@ -192,5 +191,41 @@ _Enable (analytic) access to consistent data in centralised database with extrac
 	- flow (event at time T): can be aggregated freely, usually things per time.
 	- stock (status at time T): can be aggregated freely, but not temporally.
 	- value-per-unit VPU: can be summed (except for min/max/avg).
+**Operations**
+- slicing: selection via specification of one dimension.
+- dicing: selecting a subcube (or multiple).
+- drill-down: moving to smaller dimension hierarchy (state $\to$ city).
+- roll-up: moving to larger dimension hierarchy (city $\to$ state).
+- drill-across: change from one subcube to another.
+## Multidimensional databases
+**Relational** ROLAP: use relational database.
+- **Star schema**: central fact table with denormalised dimension tables. better query performance, simplicity of structure.
+- **Snowflake schema**: central fact table with normalised dimension tables (each datum stored only once).
+- **Galaxy schema**: multiple fact tables, shared dimension tables.
+- pros: scalability, proven database technology.
+- cons: mapping overhead, extensive metadata management, slower.
+- relational mapping of hierarchies
+	1. vertical: explicit using separate relations. normalised. snowflake.
+	2. horizontal: implicit through attributes. denormalised. star.
+	3. recursive vertical: combination with horizontal possible. explicitly mapping arbitrary deep hierarchies.
+**Multidimensional** MOLAP: use multidimensional database (direct storage as cubes).
+- pros: no transfer of modelling concepts, fast and efficient.
+- cons: proprietary, missing compression/scalability, limited dimensions.
+**Hybrid** HOLAP: combine the two approaches.
 # Data Mining
+_Knowledge discovery in databases._
+**Process**: raw data -select> data -prepare/transform> data (in DW) -mine> pattern -interpret> knowledge.
+**CRISP-DM**: understand business -> understand data -> prepare data -> model -> evaluate -> deploy.
+**Another process**: identify -> estimate -> apply -> evaluate -> adapt.
+**Preprocessing**: decrease runtime and resource intensity. increase quality.
+- data types: nominal (categories). ordinal (+ranking). interval (+distance). ratio (+zero point).
+- metrics
+	- numerics: distance (minkowski, manhattan, euclidian, tchebychev).
+	- set/bags/vectors: cosine similarity, Jaccard coefficient.
+	- signatures, histograms, probability distributions: Wasserstein metric
+	- strings: soundex (phonetic), Levenshtein distance (number of insert/delete/exchange).
+- missing data: ignore, manual complete, automatic complete.
+- outliers: manual detection, statistical methods, domain knowledge, distance-based, deviation-based.
+- dimensions: feature selection or composition, PCA.
+- value count: splitting of bias.
 # Big Data
