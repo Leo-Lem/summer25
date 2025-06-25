@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage[]{xrcise}
+\usepackage[solutions]{xrcise}
 
 \subject{Empirical Software Engineering}
 \semester{Summer 2025}
@@ -12,94 +12,215 @@
 
 \begin{exercise}{Research}
   \begin{enumerate}
-    \item Name two types of threats to validity and explain them briefly.
-    \item Explain the two main principles of Grounded Theory.
-    \item Explain one method that supports Grounded Theory and explain why it supports it.
-    \item Match the given Research Methods to Qualitative/Quantitative: 
-      \begin{itemize}
-        \item Content Analysis
-        \item Random Sample
-        \item Statistical Test
-        \item Observation
-        \item Survey
-      \end{itemize}
-    \item Match the given metrics to their respective Research Method:
-      \begin{itemize}
-        \item Code Churn
-        \item Cyclomatic Complexity
-        \item Code Coverage
-        \item Code Smells
-        \item Code Duplication
-      \end{itemize}
-    \item Study Design: You label 5000 GH Issues with Tags yourself for an AI model. This takes you 6+ Hours each day without breaks, every day, for about a month straight. Find two threats to validity, explain them, and name a possible mitigation technique for each.
-  \end{enumerate}
+    \item Name two types of threats to validity and explain them briefly. \begin{solution}
+        \begin{itemize}
+          \item Internal Validity: This refers to the extent to which a study can demonstrate a causal relationship between variables. Threats include confounding variables, selection bias, and maturation effects.
+          \item External Validity: This refers to the generalizability of the study's findings to other settings, populations, or times. Threats include sample size, sampling method, and ecological validity.
+          \item Construct Validity: This refers to the degree to which a test or instrument measures the theoretical construct it is intended to measure. Threats include poor operationalization of variables and measurement bias.
+          \item Statistical Conclusion Validity: This refers to the extent to which conclusions about the relationship between variables are justified based on the statistical analysis. Threats include low statistical power, violations of statistical assumptions, and inappropriate statistical tests.
+        \end{itemize}
+      \end{solution}
 
-  \begin{solution}
-  
-  \end{solution}
+    \item Explain the two main principles of Grounded Theory. \begin{solution}
+        Grounded Theory is a qualitative research methodology that aims to develop theories grounded in empirical data. The two main principles are:
+        \begin{itemize}
+          \item Constant Comparative Method: This involves continuously comparing data with emerging categories and concepts throughout the research process to refine and develop the theory.
+          \item Theoretical Sampling: This means selecting participants and data sources based on their relevance to the developing theory, rather than predetermined criteria, allowing for a more focused exploration of the research question.
+        \end{itemize}
+      \end{solution}
+
+    \item Explain one method that supports Grounded Theory and explain why it supports it. \begin{solution}
+        One method that supports Grounded Theory is Open Coding. Open Coding involves breaking down qualitative data into discrete parts, categorizing them, and identifying patterns or themes. This method supports Grounded Theory by allowing researchers to systematically analyze data, generate initial codes, and develop categories that can lead to the formation of theories grounded in the data.
+      \end{solution}
+
+    \item Match the given research methods to qualitative/quantitative:  \begin{itemize}
+        \item Content Analysis \psolution{Qualitative}
+        \item Random Sample \psolution{Quantitative}
+        \item Statistical Test \psolution{Quantitative}
+        \item Observation \psolution{Qualitative}
+        \item Survey \psolution{Quantitative}
+      \end{itemize}
+
+    \item Match the given metrics to their respective research method: \begin{itemize}
+        \item Code Coverage \psolution{Experiment}
+        \item Defect Density \psolution{Case Study}
+        \item Time to Resolution \psolution{Survey}
+        \item Usability Rating \psolution{Observation}
+        \item Developer sentiment score \psolution{interviews}
+      \end{itemize}
+
+    \item Study Design: You label 5000 GH Issues with Tags yourself for an AI model. This takes you 6+ Hours each day without breaks, every day, for about a month straight. Find two threats to validity, explain them, and name a possible mitigation technique for each. \begin{solution}
+        \begin{itemize}
+          \item Threat: Fatigue Bias - Working for long hours without breaks can lead to fatigue, which may affect the quality of the labeling. Mitigation: Implement regular breaks and limit daily working hours to ensure consistent performance.
+          \item Threat: Selection Bias - If the issues are not randomly selected, the sample may not be representative of the entire population of issues. Mitigation: Use random sampling techniques to select a diverse set of issues for labeling.
+        \end{itemize}
+      \end{solution}
+  \end{enumerate}
 \end{exercise}
 
 \begin{exercise}{Patterns}
   \begin{enumerate}
-    \item Name two architectural patterns and describe one of them briefly.
-    \item Sketch out the test pyramid and give one advantage for each type of test (no nullifying or repeating previous arguments).
-    \item What is a Model Card? Give two examples of model card categories and describe them briefly.
+    \item Name two architectural patterns and describe one of them briefly. \begin{solution}
+        Two architectural patterns are:
+        \begin{itemize}
+          \item Model-View-Controller (MVC): This pattern separates an application into three interconnected components, allowing for modular development and easier maintenance. The Model represents the data, the View displays the data, and the Controller handles user input and updates the Model.
+          \item Microservices: This pattern structures an application as a collection of loosely coupled services, each responsible for a specific functionality. This allows for independent deployment, scaling, and development of each service.
+        \end{itemize}
+      \end{solution}
+
+    \item Sketch out the test pyramid and give one advantage for each type of test (no nullifying or repeating previous arguments). \begin{solution}
+        The test pyramid consists of three layers:
+        \begin{itemize}
+          \item Unit Tests (bottom layer): These tests are fast and cover individual components or functions, allowing for quick feedback and easy debugging.
+          \item Integration Tests (middle layer): These tests check the interaction between different components, ensuring that they work together as expected.
+          \item End-to-End Tests (top layer): These tests simulate real user scenarios, validating the entire application flow and user experience.
+        \end{itemize}
+      \end{solution}
+
+    \item What is a Model Card? Give two examples of model card categories and describe them briefly. \begin{solution}
+        A Model Card is a documentation tool that provides information about a machine learning model, including its intended use, performance metrics, and potential biases. It helps users understand the model's capabilities and limitations.
+        Two examples of model card categories are:
+        \begin{itemize}
+          \item Performance Metrics: This category includes quantitative measures of the model's accuracy, precision, recall, and other relevant metrics that indicate how well the model performs on specific tasks.
+          \item Ethical Considerations: This category addresses potential biases in the model, its impact on different demographic groups, and any ethical concerns related to its deployment and use.
+        \end{itemize}
+      \end{solution}
+
     \item Fill in the test driven development steps. Describe two necessary steps of what to do/ensure in the fourth step.
       \begin{itemize}
         \item Step 1: Write a failing test
-        \item Step 2: \
+        \item Step 2: \ \psolution{Write the minimum code necessary to make the test pass}
         \item Step 3: Make the test pass
-        \item Step 4: \
+        \item Step 4: \ \psolution{Refactor the code to (1) improve readability, (2) remove duplication, and (3) ensure maintainability}
       \end{itemize}
-    \item Name two deployment patterns and explain one briefly.
-    \item Match the definitions of Phenomenon, Concept, Model, Instance.
+
+    \item Name two deployment patterns and explain one briefly. \begin{solution}
+        \begin{itemize}
+          \item Blue-Green Deployment: This pattern involves maintaining two identical production environments (blue and green). At any time, one environment is live while the other is idle. New versions of the application are deployed to the idle environment, allowing for quick rollback if issues arise.
+          \item Canary Release: This pattern involves deploying a new version of an application to a small subset of users before rolling it out to the entire user base. This allows for monitoring and testing in a real-world environment with minimal risk.
+          \item Rolling Update: This pattern gradually replaces instances of the previous version of an application with the new version, ensuring that the system remains available during the update process.
+          \item Feature Toggles: This pattern allows developers to deploy new features in a dormant state, enabling them to be activated or deactivated without redeploying the application.
+          \item Shadow Deployment: This pattern involves deploying a new version of an application alongside the current version, allowing it to receive real user traffic without affecting the live system. This helps in testing the new version under real conditions.
+          \item A/B Testing: This pattern involves deploying two versions of an application (A and B) to different user groups to compare their performance and user experience. This helps in making data-driven decisions about which version to roll out to all users.
+        \end{itemize}
+      \end{solution}
+
+    \item Match the definitions of phenomenon, concept, model, instance.
       \begin{itemize}
-        \item Phenomenon
-        \item Concept
-        \item Model
-        \item Instance
-      \end{itemize}
-      \begin{itemize}
-        \item A representation of a phenomenon.
-        \item A specific example of a concept.
-        \item A generalization of a phenomenon.
-        \item An observable event or occurrence.
+        \item A representation of a phenomenon. \textbf{Model}
+        \item A specific example of a concept. \textbf{Instance}
+        \item A generalization of a phenomenon. \textbf{Concept}
+        \item An observable event or occurrence. \textbf{Phenomenon}
       \end{itemize}
   \end{enumerate}
-
-  \begin{solution}
-    % TODO
-  \end{solution}
 \end{exercise}
 
 \begin{exercise}{Requirements}
   \begin{enumerate}
-    \item Fill in the second and third step of the requirements engineering process and explain any two steps:
+    \item Fill in the second and third step of the requirements engineering process and explain any two steps.
       \begin{itemize}
-        \item Elicitation
-        \item …
-        \item …
-        \item Validation
-        \item Management
+        \item Elicitation \psolution{Gathering requirements from stakeholders}
+        \item … \psolution{Analysis: Identifying and clarifying requirements}
+        \item … \psolution{Specification: Documenting requirements in a clear and structured manner}
+        \item Validation \psolution{Ensuring that the requirements meet stakeholder needs and are feasible}
+        \item Management \psolution{Tracking changes and maintaining requirements throughout the project lifecycle}
       \end{itemize}
-    \item Which of these is probability sampling not appropriate for? Developing a hypothesis, Representativeness, Generalization.
-    \item Name six categories of non-functional requirements and for three give concrete examples.
-    \item Name two differences between interviews and surveys.
+
+    \item Which of these is probability sampling not appropriate for? Developing a hypothesis, Representativeness, Generalization. \begin{solution}
+        Probability sampling is not appropriate for developing a hypothesis. It is primarily used for ensuring representativeness and generalization of findings to a larger population.
+      \end{solution}
+
+    \item Name six categories of non-functional requirements and for three give concrete examples. \begin{solution}
+        Six categories of non-functional requirements are:
+        \begin{itemize}
+          \item Performance: The system should handle 1000 concurrent users with a response time of less than 2 seconds.
+          \item Security: The system must encrypt all sensitive data using AES-256 encryption.
+          \item Usability: The user interface should be intuitive and require no more than three clicks to complete a task.
+          \item Reliability: The system should have an uptime of 99.9% over a year.
+          \item Maintainability: The codebase should follow coding standards and be modular to facilitate future updates.
+          \item Scalability: The system should be able to scale horizontally to accommodate a 50% increase in user load without performance degradation.
+        \end{itemize}
+      \end{solution}
+
+    \item Name two differences between interviews and surveys. \begin{solution}
+        \begin{itemize}
+          \item Interviews are typically qualitative and allow for in-depth exploration of topics, while surveys are often quantitative and focus on collecting structured data from a larger sample.
+          \item Interviews provide the opportunity for follow-up questions and clarification, whereas surveys usually have fixed questions with limited scope for elaboration.
+          \item Interviews are usually conducted one-on-one or in small groups, allowing for a more personal interaction, while surveys can be distributed to a large number of respondents simultaneously, often through online platforms.
+          \item Interviews can adapt to the flow of conversation, allowing for deeper insights, while surveys have a predetermined set of questions that respondents must answer, limiting the depth of responses.
+          \item Interviews often require more time and resources to conduct and analyze, while surveys can be administered quickly and analyzed using statistical methods.
+        \end{itemize}
+      \end{solution}
+
     \item Which expression is correct?
       \begin{itemize}
-        \item In an experiment, we manipulate the independent variable.
-        \item In an experiment, we manipulate the dependent variable.
-        \item In an experiment, we manipulate both independent and dependent variables.
-        \item In an experiment, we manipulate no variables.
+        \item In an experiment, we manipulate the independent variable. \psolution{Correct}
+        \item In an experiment, we manipulate the dependent variable. \psolution{Incorrect}
+        \item In an experiment, we manipulate both independent and dependent variables. \psolution{Incorrect}
+        \item In an experiment, we manipulate no variables. \psolution{Incorrect}
       \end{itemize}
-    \item Name two descriptive statistics for labeling a GitHub issue dataset.
-    \item Draw a UML Use Case Diagram for a bank. Customers can make transfers and optionally save them as templates. They can issue standing orders. Transfers and standing orders require a TAN to be entered. The system allows customers to log in. Bank employees can freeze accounts if they act suspiciously. Only bank managers can unfreeze accounts.
-    \item Use Abbott's technique to turn the scenario from before into a static UML class diagram, including attributes and multiplicities, but no methods. Also, no aggregations or compositions are required.
-    \end{enumerate}
 
-  \begin{solution}
-    % TODO
-  \end{solution}
+    \item Name two descriptive statistics for labeling a GitHub issue dataset. \begin{solution}
+        Two descriptive statistics for labeling a GitHub issue dataset could be:
+        \begin{itemize}
+          \item Mean time to resolution: This statistic measures the average time taken to resolve issues, providing insight into the efficiency of the development process.
+          \item Distribution of issue labels: This statistic shows the frequency of different labels applied to issues, helping to identify common types of issues and areas that may require more attention.
+        \end{itemize}
+      \end{solution}
+
+    \item Draw a UML Use Case Diagram for a bank. Customers can make transfers and optionally save them as templates. They can issue standing orders. Transfers and standing orders require a TAN to be entered. The system allows customers to log in. Bank employees can freeze accounts if they act suspiciously. Only bank managers can unfreeze accounts. \begin{solution}
+        \begin{center} % TODO: verify
+          \begin{tikzpicture}
+            \tikzstyle{actor} = [draw, fill=gray!20, rectangle, rounded corners]
+            \tikzstyle{usecase} = [draw, ellipse, fill=blue!10]
+            
+            % Actors
+            \node[actor] (customer) at (0,0) {Customer};
+            \node[actor] (employee) at (-6,-4) {Bank Employee};
+            \node[actor] (manager) at (-6,-6) {Bank Manager};
+
+            % Use cases
+            \node[usecase] (login) at (3,2) {Log in};
+            \node[usecase] (transfer) at (5,0) {Make Transfer};
+            \node[usecase] (saveTemplate) at (8,0) {Save as Template};
+            \node[usecase] (standingOrder) at (5,-2) {Issue Standing Order};
+            \node[usecase] (enterTAN) at (7,-4) {Enter TAN};
+            \node[usecase] (freezeAccount) at (-2,-4) {Freeze Account};
+            \node[usecase] (unfreezeAccount) at (1,-6) {Unfreeze Account};
+
+            % Customer relations
+            \draw (customer) -- (login);
+            \draw (customer) -- (transfer);
+            \draw (customer) -- (saveTemplate);
+            \draw (customer) -- (standingOrder);
+
+            % TAN includes
+            \draw[->] (transfer) -- node[above right] {\scriptsize{includes}} (enterTAN);
+            \draw[->] (standingOrder) -- node[right] {\scriptsize{includes}} (enterTAN);
+
+            % Employee relations
+            \draw (employee) -- (freezeAccount);
+
+            % Manager is-a Employee
+            \draw[->] (manager) -- node[right] {\scriptsize{is a}} (employee);
+
+            % Manager relations
+            \draw (manager) -- (unfreezeAccount);
+          \end{tikzpicture}
+        \end{center}
+      \end{solution}
+
+    \item Use Abbott's technique to turn the scenario from before into a static UML class diagram, including attributes and multiplicities, but no methods. Also, no aggregations or compositions are required. \begin{solution}
+        \begin{itemize}
+          \item Customer: Attributes: customerID, name, email, accountNumber
+          \item BankEmployee: Attributes: employeeID, name, role
+          \item BankManager: Attributes: managerID, name, role
+          \item Transfer: Attributes: transferID, amount, date, TAN
+          \item StandingOrder: Attributes: orderID, amount, frequency, TAN
+          \item Account: Attributes: accountNumber, balance, status
+        \end{itemize}
+      \end{solution}
+    \end{enumerate}
 \end{exercise}
 
 

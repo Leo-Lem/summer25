@@ -136,7 +136,28 @@ _Describe components with interesting dynamic behaviour._
 - Techniques and tools: completeness, consistency, refinement, model checking.
 - Review: correct? complete? consistent? unambiguous? realistic?
 **Verification** (how): building system right? design/implementation meet requirements?
-# 
+## Requirements Specification
+**Software requirements specification** (SRS) is document that describes what and how.
+- introduction: purpose, scope, definitions, references, overview.
+- overall description: product, function, users, constraints, assumptions.
+- specific requirements.
+**Requirements patterns**: for multiple projects, similar contexts, different units of same company, strict standards
+- **Rupp's templates**: autonomous, user interaction, system interface
+	- {when?}
+	- the system
+	1. shall {process} (legally binding)
+	2. should provide {whom?} with the ability to {process} (strongly recommended)
+	3. will be able to {process} (used in future)
+	- {object}
+	- {object details}
+ - **easy approach requirements syntax EARS templates**: 
+	 - ubiquitous: The {system} shall {response}.
+	 - event-driven: WHEN {trigger} {optional precondition} the {system} shall {response}.
+	 - unwanted: IF {unwanted condition}, THEN the {system} shall {response}.
+	 - state-driven: WHILE {state}, the {system} shall {response}.
+	 - optional: WHERE {feature}, the {system} shall {response}.
+	 - complex: combinations.
+#
 ---
 [patterns](patterns.pdf)
 # Patterns
@@ -249,15 +270,26 @@ Concepts
 **JUnit**: Java testing framework.
 **Mock Object Pattern**: Observability and controllability difficult due to dependencies $\to$ Mocking.
 **Dependency Injection**: low coupling but high cohesion.
+**Test-driven development**: write test before implementation, fail the test, write code, pass the test, refactor.
+1. Red bar patterns
+- starter test: first test should be trivial.
+- one step test: next test should teach something.
+- learning test: write test for new external API.
+- regression test: smallest possible test to verify a bug.
+- child test: break large test into smaller test. learning: why was it too big?
+1. Green bar patterns
+- fake it: return a constant as first implementation.
+- triangulation abstract only when you have two or more examples.
+- obvious implementation: just implement if you know how.
 ### System Testing
 *Developers confirm that interfaces among subsystems work as expected.*
-
 ### Integration Testing
 *Developers confirm system meets the (non-)functional requirements.*
-
 ### Acceptance Testing
 *Clients confirm system meets the requirements and is ready to use.*
-
+**User stories** as communication means. Can also be broken down into scenarios.
+**GWT template**: given when then.
+Behaviour driven development: focus on simple language across teams and on when/who.
 # More Patterns
 ## Collaboration Patterns
 ## UX Patterns
