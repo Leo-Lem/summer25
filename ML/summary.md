@@ -1,5 +1,5 @@
 [exercises](exercises.pdf) | [slides](slides.pdf)
-# Linear Algebra Basics
+# Linear Algebra
 **Norms**
 - 0-norm: non-zeros
 - 1-norm: sum
@@ -14,7 +14,6 @@
 **Gaussian elimination**: lower triangle. eliminate variables.
 **Matrix multiplication**: row x column.
 **Inner product**: linear (in one argument), symmetric, non-negative (psd), strictly definite iff 0 only for 0 vector. dot product is example.
-# Concepts
 ## Optimisation
 **gradient**: partial derivates.
 **convex sets**: all points are connected with other points.
@@ -24,6 +23,9 @@
 | ---------------- | ------ | --------------------------------- | --------------------- |
 | convex & concave | convex | convex for $A\succeq0$ ($w^TAw$). | (non-strictly) convex |
 **exact line search for step length/learning rate**: if i move only along given line, how far should i move to minimise?
+## Matrix Factorisation
+
+# Concepts
 ## Over-/Underfitting
 **$k$-fold cross validation**: split data into blocks, use each block for validation once and others for training (train $k$ times).
 **regularisation**: constrain magnitude/norm of model parameters. $\min_w{L(w)+\frac{\lambda}{2}||w||_2^2}$.
@@ -56,7 +58,8 @@ Generative models find distribution: $p(x,y)$. can be used to generate new data 
 Gaussian MLE (assume Gaussian distribution)
 - Linear Discriminant Analysis (LDA): shared covariance matrix.
 - Quadratic Discriminant Analysis (QDA): different covariance matrix per class.
-## Principal Component Analysis
+## Dimensionality Reduction, Embeddings
+### Principal Component Analysis
 _Technique to reduce the dimension of a dataset in $\mathbb{R}^d$ by linear projections._
 **Covariance matrix approach**: maximise variance of reduced (projected) data.
 - assume the points are centred, otherwise center with $\tilde{x}_i=x_i-\bar{x}$.
@@ -67,7 +70,20 @@ _Technique to reduce the dimension of a dataset in $\mathbb{R}^d$ by linear proj
 **Outliers**: optimise global criteria, no guaranty for individual points, sensitive to outliers.
 **Use case**: works best for Gaussian.
 **Applications**: dimensionality reduction, data visualisation, noise filtering, feature extraction.
-Kernel PCA: use kernel trick for non-linear principal components.
+**Kernel PCA**: use kernel trick for non-linear principal components.
+### Multi-dimensional scaling
+_Transform set of objects by pairwise distances into points in geometric space while keepng relative distances._
+Euclidian distance matrix $D$ comes from $\mathbb{R}^d$.
+Match best by pairwise distances $\to$ many possibilities/variants.
+1. Classic MDS: minimise error wrt pairwise scalar products. efficient computation of optimal solution.
+2. Metric MDS: minimise error wrt distance matrix D. highly non-convex, NP-hard problem.
+3. Non-metric MDS: only ordering on distances is tried to preserve.
+**Manifold**: locally euclidian, globally curved or complex (earth's surface, for example).
+**Isometric mapping** (isomap)
+- compute geodesic distance (distance on the manifold): construct kNN graph to approximate.
+- compute shortest path distances between all pairwise data points.
+- store distance matrix D.
+- run metric DMS on D.
 # Regression
 ## Least Squares Regression
 **Goal**: find best-fitting linear function. $\min_{\tilde{w}}{\sum_{i=1}^{n}{\frac{1}{2}\left((\tilde{x}^{(i)})^{\top}\tilde{w}-y^{(i)}\right)^2}}$ or $\min_{\tilde{w}}{{\frac{1}{2}||\tilde{X}\tilde{w}-y||}^2}$.
@@ -206,3 +222,4 @@ Logistic loss (for labels $0:1$): $\log{(1+\exp{(-y\cdot (x^\top w+b)}))}$.
 k-means leads to Voronoi partition.
 Many variants exist.
 ## Deep Learning
+
