@@ -276,7 +276,7 @@
   \begin{solution}
     1.\ (KNN)
     \begin{itemize}
-      \item \emph{False.} KNN can handle any number of classes; there is no inherent limit of $K$.
+      \item \emph{False.} $K$ describes the number of neighbors, not the number of classes.
       \item \emph{False.} In higher dimensions, KNN typically suffers due to the curse of dimensionality.
       \item \emph{False.} KNN can separate data non-linearly by design.
     \end{itemize}
@@ -284,8 +284,8 @@
     2.\ (k-means)
     \begin{itemize}
       \item \emph{True.} k-means will converge to some local minimum of its objective.
-      \item \emph{False.} It does not guarantee a global optimum with arbitrary initializations.
-      \item \emph{True.} If centers are fixed, assignment is straightforward via nearest center.
+      \item \emph{False.} It does not guarantee a global optimum with arbitrary initializations due to greedy nature.
+      \item \emph{False.} Points might be ambiguously placed between two centers. Then multiple assignments are possible.
       \item \emph{True.} If assignments are fixed, each center is the mean of points in its cluster.
     \end{itemize}
 
@@ -307,7 +307,7 @@
     \begin{itemize}
       \item $x^3$ on $[0,1]$: \emph{True}. On nonnegative $x$, it has nonnegative second derivative ($6x$).
       \item $e^{-x}$: \emph{True}. Its second derivative $e^{-x}$ is always positive.
-      \item $|x|$: \emph{True}. Absolute value is convex.
+      \item $|x|$: \emph{True}. Absolute value is convex. But not strictly convex due to flat region at 0 (not differentiable).
     \end{itemize}
 
     6.\ (Loss under Gaussian noise)
@@ -318,8 +318,8 @@
 
     7.\ (Kernels)
     \begin{itemize}
-      \item Positive semidefinite: \emph{True}.
-      \item Symmetric: \emph{True}.
+      \item Positive semidefinite: \emph{True}. Derives from inner product requiring non-negativity, dot product is type of inner product, so the kernel matrix needs to be psd, so all dot products are positive.
+      \item Symmetric: \emph{True}. Derives from inner product requiring symmetry.
       \item Inner product form $\Phi(x_i)^\top \Phi(x_j)$: \emph{True}. That is the essence of a valid kernel.
     \end{itemize}
   \end{solution}
@@ -329,9 +329,9 @@
   Give a concise definition of empirical risk minimization and of the maximum likelihood principle. Briefly explain how they relate under certain assumptions.
 
   \begin{solution}
-    \textbf{ERM} seeks to minimize the average loss over the training set.  
-    \textbf{Maximum likelihood (ML)} selects parameters that maximize the likelihood of observed data under a probabilistic model.  
-    If the chosen loss is the negative log-likelihood, then ERM is equivalent to MLE, meaning both frameworks align exactly under that model.
+    \textbf{Empirical Risk Minimization (ERM)} minimizes the average loss over the training data.  
+    \textbf{Maximum Likelihood Estimation (MLE)} maximizes the probability (likelihood) of the observed data under a probabilistic model.
+    The two approaches are mathematically equivalent when the loss in ERM is chosen as the negative log-likelihood — then ERM becomes equivalent to MLE.
   \end{solution}
 \end{exercise}
 

@@ -9,23 +9,27 @@
 **Trace**: sum of main diagonal. $tr(A)=a+c$.
 **Inverse**: reverse of a transformation. $AA^{-1}=I$. No inverse if $det(A)=0$.
 **Eigenvector & -value**: vectors only scaled by Eigenvalue in transformation. $A\overset{\rightarrow}{v}=\lambda\overset{\rightarrow}{v}$. $(A-\lambda I)\overset{\rightarrow}{v}=\overset{\rightarrow}{0}$. Find $\lambda$ to make determinant zero. $\det{(A-\lambda I)}=0$.
-**Definiteness**: PD ($\lambda>0$), PSD ($\lambda≥0$), anlg. for negative
+**Definiteness**: PD ($\lambda>0$), PSD ($\lambda≥0$), anlg. for negative. describes the convexity/concavity of the matrix when applied in a general quadratic function $\to$ convex means having a global minimum.
 **Rank**: output dimensions. linearly independent columns.
 **Gaussian elimination**: lower triangle. eliminate variables.
 **Matrix multiplication**: row x column.
+**Inner product**: linear (in one argument), symmetric, non-negative (psd), strictly definite iff 0 only for 0 vector. dot product is example.
 # Concepts
 ## Optimisation
 **gradient**: partial derivates.
 **convex sets**: all points are connected with other points.
 **convex functions**: convex set and connection is contained in shape. compute second derivative and check if > 0.
-**convexity rules**: linear is convex and concave. norm is convex. square is convex if $A$ is psd ($w^TAw$).
+
+| linear           | norm   | square                            | absolute              |
+| ---------------- | ------ | --------------------------------- | --------------------- |
+| convex & concave | convex | convex for $A\succeq0$ ($w^TAw$). | (non-strictly) convex |
 **exact line search for step length/learning rate**: if i move only along given line, how far should i move to minimise?
 ## Over-/Underfitting
 **$k$-fold cross validation**: split data into blocks, use each block for validation once and others for training (train $k$ times).
 **regularisation**: constrain magnitude/norm of model parameters. $\min_w{L(w)+\frac{\lambda}{2}||w||_2^2}$.
 **approach**: solve for many $\lambda$, k-fold cross validation for each (called regularisation paths), pick best $\lambda^*$ (minimal validation error), train with $\lambda^*$.
-Empirical risk minimisation ERM: minimise average loss over training data.
-**Empirical (ERM) v. regularised risk minimisation (RRM)**: without and with regularisation.
+**Empirical risk minimisation ERM**: minimise average loss over training data.
+**Regularised risk minimisation (RRM)**: without and with regularisation.
 **Bias v. variance**: high variance ($E[(f_n(x)-E[f_n(x)])^2]$) models have high model complexity and tend to overfit, but capture training data well. high bias ($E[f_n(x)]-f^*(x)$) models might underfit, but have small model complexity.
 **Feature scaling**: some methods are invariant to feature scaling, regularisation is not. so always scale to [0,1] or [-1,1]. normalising: center, then scale such that 2-norm is one.
 ## Maximum Likelihood Principle
@@ -133,6 +137,7 @@ Kernel PCA: use kernel trick for non-linear principal components.
 **advantages**: simple/easily understandable, no training, non-parametric (can handle complex decision boundaries), good at multiclass.
 **disadvantages**: computationally expensive for large datasets, sensitive to irrelevant features and noisy data.
 can also be used for regression.
+**higher-dimensions hurt knn**: distances become less meaningful as all points become more or less the same distance apart $\to$ curse of dimensionality.
 ## Naive Bayes
 *probabilistic algorithm based on Bayes' theorem.*
 **Naive assumption**: all features are conditionally independent given the class.
