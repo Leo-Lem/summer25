@@ -13,15 +13,22 @@ ACID properties of transactions: atomicity (all or nothing), consistency (succes
 ## Anomalies
 **lost update**: T2 update overwrites T1 update $\to$ locking, update validation.
 **dirty read**: T2 reads uncommitted value after T1 update $\to$ read data only after commit.
-**non-repeatable read**: values change while T2 is processed $\to$ lock read access, multiversion concurency control (multiple versions with timestamps or transaction numbers).
-**phantom problem**: computation yields differen values, like non-repeatable read but for multiple records or whole relation.
+**non-repeatable read**: values change while T2 is processed $\to$ lock read access, multi-version concurrency control (multiple versions with timestamps or transaction numbers).
+**phantom problem**: computation yields different values, like non-repeatable read but for multiple records or whole relation.
 ## Isolation Levels
-**Uncommitted read** (UR) / **Read Uncommited** (ANSI Level 0): for read only, no record locking. automatic upgrade to CS for modifications. 1 IN table lock.
-**Cursor Stability** (CS)/ **Read Commited** (ANSI Level 1): default. locks and unlocks each row, 1 at a time. only returns committed data. 1 IS table lock, 1 NS row lock.
+**Uncommitted read** (UR) / **Read Uncommitted** (ANSI Level 0): for read only, no record locking. automatic upgrade to CS for modifications. 1 IN table lock.
+**Cursor Stability** (CS)/ **Read Committed** (ANSI Level 1): default. locks and unlocks each row, 1 at a time. only returns committed data. 1 IS table lock, 1 NS row lock.
 **Read Stability** (RS) / **Repeatable Read** (ANSI Level 2): all querying rows locked until transaction completed. release locks on non-predicated queries. stable result sets. 1 IS table lock, 3000 NS row locks.
-**Repeatable Read** (RR) / **Serializable** (ANSI Level 3): lock all rows visited. keep locks until transaction complete. consistent results. 1 S table lock.
+**Repeatable Read** (RR) / **Serialisable** (ANSI Level 3): lock all rows visited. keep locks until transaction complete. consistent results. 1 S table lock.
 ## Schedules
 **serialisability**: can be serially executed (deterministic).
+- full/strict serialisability/linearisability: includes real-time ordering (if tA completes before tB effects are visible). consistency across distributed systems.
+- final state serialisability FSR: final database state matches serial execution, no preservation of real-time ordering.
+- view serialisability VSR: same reads and writes as serialisable schedule (allows blind writes).
+- conflict serialisable CSR: a schedule is CSR when it is conflict equivalent to some serial schedule. acyclic $\to$ CSR. build a conflict graph with nodes=transactions and edges=conflict.
+- order-CSR: only committed ordering matter for conflicts.
+- committed-order serialisability with commit-sequence constraints COSCSR: ensures commit order corresponds to some serial order, can allow intermediate anomalies.
+- serial: weakest here.
 **correctness**: equivalent to one of the serial schedules.
 **equivalence**: have the same effect.
 ## Locking
@@ -43,14 +50,6 @@ ACID properties of transactions: atomicity (all or nothing), consistency (succes
 	- **forward-oriented**: writing transactions validate against running transactions. advantages include earlier rollback, kill or die approach, no need for write sets. problems include high number of rollbacks, WS(T) must be locked so RS(T_j) does not change.
 - **write**: propagate changes after successful validation, reading transactions do not need this.
 ***M*ulti-*V*ersion *C*oncurrency *C*ontrol**: each object gets version number, changes increase version number. risk of reading older versions but not of discarded work, needs additional storage/maintenance.
-#### Exercise
-S = BOT1, BOT2, r1[A], r2[B], r1[B], r2[C], w1[B], w2[C] , r1[C], commit2, w1[A], commit1.
-- What could a schedule with 2PL for the schedule S look like?
-	- T1: begin, lockX[A], r[A], lockX[B], wait, r[B], w[B], lockR[C], unlockX[B], r[C], unlockR[C], w[A], unlockX[A], commit
-	- T2: begin, lockR[B], r[B], lockX[C], unlockR[B], w[C], unlockX[C], commit
-- What would a schedule using SS2PL with preclaiming look like?
-	- T1: begin, lockX[A], lockX[B], lockR[C], r[A], wait, r[B], w[B], r[C], w[A], unlockX[A], unlockX[B], unlockR[C], commit
-	- T2: begin, lockR[B], lockX[C], r[B], w[C], unlockR[B], unlockX[C], commit
 ## Logging and Recovery
 **ACID**: Atomicity (all or nothing), Consistency (success means integrity), Isolation (logical single user), Durability (survive any failure).
 **Failure types**
