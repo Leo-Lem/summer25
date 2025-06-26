@@ -1,53 +1,66 @@
 [exercises](exercises.pdf) | [slides](slides.pdf)
-# Linear Algebra
-**Norms**
-- 0-norm: non-zeros
-- 1-norm: sum
-- 2-norm (Euclid): root of squares
-- $\infty$-norm (max): maximum
-**Determinant**: factor of area increase or decrease. $det(A)=ad-bc$. 3x3: diagonals - reverse diagonals.
-**Trace**: sum of main diagonal. $tr(A)=a+c$.
-**Inverse**: reverse of a transformation. $AA^{-1}=I$. No inverse if $det(A)=0$.
-**Eigenvector & -value**: vectors only scaled by Eigenvalue in transformation. $A\overset{\rightarrow}{v}=\lambda\overset{\rightarrow}{v}$. $(A-\lambda I)\overset{\rightarrow}{v}=\overset{\rightarrow}{0}$. Find $\lambda$ to make determinant zero. $\det{(A-\lambda I)}=0$.
-**Definiteness**: PD ($\lambda>0$), PSD ($\lambda≥0$), anlg. for negative. describes the convexity/concavity of the matrix when applied in a general quadratic function $\to$ convex means having a global minimum.
-**Rank**: output dimensions. linearly independent columns.
+# Basic Math
+**Closed-form solution**: inputs yield correct outputs directly.
+- explicit formula.
+- no iteration.
+- deterministic computation.
+**iid-assumption**: identically and independently distributed.
+**Gaussian/\[standard\] normal distribution**: bell curve with mean $\mu[=0]$ and variance $\sigma^2[=1]$.
+**Bayes' Law**: $p(A|B)=p(B|A)\frac{p(A)}{p(B)}$.
+## Linear Algebra
+**Rank** $rank(A)=$ linearly independent columns. dimension of spanned vector space.
+**Norms**: lengths/size of vector. non-negative, homogenous, triangle unequal.
+- 0-"norm": non-zero entries. not actually a norm.
+- 1-norm: sum.
+- 2 (Euclid): root of squares.
+- $\infty$ (max): maximum value.
+- $p$-norm $||x||_p=(\sum_i{|x_i|^p})^{1/p}$. other norms derive from this. also called Lebesgue norm $\ell_p$.
+**Determinant** $det(A)=ad-bc$. factor of area increase or decrease.
+- 3x3: diagonals - reverse diagonals.
+**Trace** $tr(A)=a+c$. sum of main diagonal.
+**Inverse** $AA^{-1}=I$. Reverse of transformation (only exists if $det(A)\neq0$).
+**Eigenvector & -value** $A\overset{\rightarrow}{v}=\lambda\overset{\rightarrow}{v}$. 
+- Eigenvalue $\lambda$: solve $\det{(A-\lambda I)}=0$.
+- Eigenvector $v$: only scaled in transformation (by Eigenvalue). Plug $\lambda$s into $(A-\lambda I)v=0$.
+**Definiteness**: nature (convexity, concavity) of matrix-related quadratic form $x^\top Ax$.
+- positive definite PD for $\lambda>0$.
+- positive semidefinite PSD for $\lambda≥0$.
+- analog for ND, NSD.
+- indefinite means neither convex nor concave.
+## Operations
 **Gaussian elimination**: lower triangle. eliminate variables.
 **Matrix multiplication**: row x column.
 **Inner product**: linear (in one argument), symmetric, non-negative (psd), strictly definite iff 0 only for 0 vector. dot product is example.
+**Matrix factorisation**: TODO
 ## Optimisation
 **gradient**: partial derivates.
 **convex sets**: all points are connected with other points.
 **convex functions**: convex set and connection is contained in shape. compute second derivative and check if > 0.
-
-| linear           | norm   | square                            | absolute              |
-| ---------------- | ------ | --------------------------------- | --------------------- |
-| convex & concave | convex | convex for $A\succeq0$ ($w^TAw$). | (non-strictly) convex |
+- linear: convex and concave.
+- p-norm: convex (but not 0-norm).
+- square: convex for $A\succeq0$ ($w^TAw$).
+- absolute: non-strictly convex.
 **exact line search for step length/learning rate**: if i move only along given line, how far should i move to minimise?
-## Matrix Factorisation
-
 # Concepts
-## Over-/Underfitting
-**$k$-fold cross validation**: split data into blocks, use each block for validation once and others for training (train $k$ times).
-**regularisation**: constrain magnitude/norm of model parameters. $\min_w{L(w)+\frac{\lambda}{2}||w||_2^2}$.
-**approach**: solve for many $\lambda$, k-fold cross validation for each (called regularisation paths), pick best $\lambda^*$ (minimal validation error), train with $\lambda^*$.
-**Empirical risk minimisation ERM**: minimise average loss over training data.
-**Regularised risk minimisation (RRM)**: without and with regularisation.
-**Bias v. variance**: high variance ($E[(f_n(x)-E[f_n(x)])^2]$) models have high model complexity and tend to overfit, but capture training data well. high bias ($E[f_n(x)]-f^*(x)$) models might underfit, but have small model complexity.
-**Feature scaling**: some methods are invariant to feature scaling, regularisation is not. so always scale to [0,1] or [-1,1]. normalising: center, then scale such that 2-norm is one.
+**Empirical risk minimisation** ERM: minimise average loss over training data.
+**$k$-fold cross validation**.
+- split data into blocks.
+- use each block for validation once, others for training.
+- train $k$ times.
+**Bias v. variance**
+- high variance $E[(f_n(x)-E[f_n(x)])^2]$ $\to$ high complexity, capture training data well, but overfit.
+- high bias $E[f_n(x)]-f^*(x)$ $\to$ low complexity, might generalise better, but underfit.
 ## Maximum Likelihood Principle
-**Gaussian/normal distribution**: bell curve, defined by mean $\mu[=0]$ and variance $\sigma^2[=1]$ (bracket values are standard normal distribution).
-**Closed-form solution**: explicit formula, no iteration, deterministic computation (inputs yield correct outputs directly).
-**Assumption**: **i**dentically & **i**ndependently **d**istributed.
-***M*aximum *L*ikelihood *E*stimator**: $\max_\theta p(\text{observation}|\theta)$.
-- computation: With iid: $L(\theta)=\prod_{i=1}^n{p(t^i|\theta)}$. Plug in probability distribution (standard normal here) $L(\theta)=\prod_{i=1}^n{[\frac{1}{\sqrt{2\pi}}e^{-\frac{(t^i-\theta)^2}{2}}]}$. $\theta$ corresponds to the true value here and we are centering around this value (to estimate the likelihood). Simplify product to sum using $\log{L(\theta)}=:l(\theta)$. Derive for $\theta$, set equal to zero, solve for $\theta$.
-- Gauss yields mean (sum of squared differences minimized by mean). Laplace yields median (sum of absolute differences minimized by median).
-- Laplace is more robust against outliers (deviations grow linearly not squaredly).
-- MLE is ERM with negative log-likelihood loss.
-***M*aximum *A* *P*osteriori**: $\max_\theta p(\theta|\text{observation})=p(\text{observation})\frac{p(\theta)}{p(\text{observation})}$.
-**Bayes Law**: $p(A|B)=p(B|A)\frac{p(A)}{p(B)}$.
-**Risk minimisation equivalence**: MLE = ERM. MAP = RRM. noise corresponds to regularizer. variance parameters $\sigma^2, \tau^2$ correspond to regularization parameter $\lambda$.
-**When to use what?**: different noise distributions and different parameter priors.
-## Model comparison with significance test
+_Maximise the likelihood of the observation assuming the model is correct._
+**Maximum Likelihood Estimator**: $\max_\theta p(\text{observation}|\theta)$.
+- Gauss yields mean (sum of squared differences minimised by mean).
+- Laplace yields median (sum of absolute differences minimised by median).
+- MLE is specific ERM with negative log-likelihood loss.
+**Maximum A Posteriori** MAP: $\max_\theta p(\theta|\text{observation})=p(\text{observation})\frac{p(\theta)}{p(\text{observation})}$.
+- MAP is specific RRM where regularisation is log-prior.
+- use over MLE, when you want to incorporate prior knowledge.
+## Model comparison
+_Compare two models using significance test._
 **Input**: two models and evaluation metric.
 $H_0$: both models perform equally well.
 **Likelihood of $H_0$** denoted by $p$.
@@ -85,39 +98,57 @@ Match best by pairwise distances $\to$ many possibilities/variants.
 - store distance matrix D.
 - run metric DMS on D.
 # Regression
-## Least Squares Regression
-**Goal**: find best-fitting linear function. $\min_{\tilde{w}}{\sum_{i=1}^{n}{\frac{1}{2}\left((\tilde{x}^{(i)})^{\top}\tilde{w}-y^{(i)}\right)^2}}$ or $\min_{\tilde{w}}{{\frac{1}{2}||\tilde{X}\tilde{w}-y||}^2}$.
-**Bias integration**: into weights, $\tilde{x}$ column 1.
+## (Ordinary) Least Squares
+_Find best-fitting linear function $\min_{\tilde{w}}{{\frac{1}{2}||\tilde{X}\tilde{w}-y||}^2}$. not eliminating loss -> always a solution._
 **Weights**: influence of each parameter on result.
-**Offset**: general bias (or weight 0).
-**Mean squared error (MSE)**: $L=\frac{1}{2}(y-\hat{y})^2$.
+**Offset**: general bias. can be integrated into as weight 0: $\tilde{x}$ column 0.
 **Gradient**: $\nabla L=X^{\top}(Xw-y)$. Solve for 0: $(X^\top X)w=X^\top y$.
 **Runtime**: $O(d^3)$.
-**Intuition why there are always solutions**: minimising not eliminating loss -> always a solution.
-## Polynomial regression and basis functions
-**map to higher-dimension linear regression**: $x \to \tilde{x}=(x^d,x^{d-1},…,x,1)^\top\in \mathbb{R}^{d+1}$.
-**mapping works for arbitrary function**: we can model anything theoretically. problem: over- and underfitting.
-## More Regression
-**Ridge regression**: least squares with 2-norm regulariser. solved via linear equations or gradient descent. Zero-ed gradient: $X^\top X+n\lambda I=X^\top y$.
-**LASSO**: sparse solutions (example: many genes, few patients for data). $\min_w{\frac{1}{2n}||Xw-y||_2^2+\lambda||w_||_1}$.
-**Elastic Net**: interpolation between ridge and lasso.
-**Robust regression**: loss insensitive to outliers. $min_w\frac{1}{n}||Xw-y||_1$. often with different regularizer than 1-norm.
 ## Evaluation
+_How good is our regression?_
 **Mean squared error** $MSE=\frac1n\sum_{i=1}^n{(y_i-\hat{y}_i)^2}$. Penalise larger errors more than small ones. less interpretable due to square.
 **Root mean squared error** $RMSE=\sqrt{MSE}$. improves interpretability over MSE.
 **Mean absolute error** $MAE=\frac1n\sum_{i=1}^n{|y_i-\hat{y}_i|}$. more robust/less sensitive to individual errors.
 **Coefficient of Determination** $R^2=1-\frac{\sum{(y_i-\hat{y}_i)^2}}{\sum{(y_i-\bar{y})^2}}$. 1 means perfect prediction, 0 means same as predicting the mean, negative means worse performance that constant predictor.
+## Polynomial regression and basis functions
+_Map to higher-dimension linear regression._
+**Mapping** $x \to \tilde{x}=(x^d,x^{d-1},…,x,1)^\top\in \mathbb{R}^{d+1}$.
+**works for arbitrary function**: we can model anything theoretically.
+**problem**: over- and underfitting.
+## Adding regularisation
+_Prevent overfitting by penalising complexity/encouraging simpler models._
+**L1-regularisation** $\min_w{L(w)+\lambda||w||_1}$. Sharp corners $\to$ Encourages sparsity.
+- LASSO regression when used with least squares.
+- Useful when few features contribute (weights can be zero-ed).
+**L2-regularisation** $\min_w{L(w)+\frac{\lambda}{2}||w||_2^2}$. Encourages shrinkage.
+- Ridge regression when used with least squares. 0-gradient $X^\top X+n\lambda I=X^\top y$.
+- Useful when many features contribute a little bit (weights are usually not zero-ed)
+**Elastic Net**: interpolation between ridge and lasso.
+**More regularisations**: dropout (in NNs), varied input, early stopping.
+**Finding** $\lambda$.
+1. solve for many $\lambda$.
+2. regularisation paths: $k$-fold cross validation for each.
+3. minimal validation error: pick best $\lambda^*$.
+4. train with $\lambda^*$.
+**Feature scaling required for regularisation**.
+- scale to [0,1] or [-1,1].
+- normalising: center, then scale such that 2-norm is one.
+## Handling outliers
+_OLS is very sensitive to outliers due to squared residuals._
+**Least absolute deviations** LAD $min_w\frac{1}{n}||Xw-y||_1$. absolute residuals instead of squared residuals.
+- also called L1 or median regression.
+- often with different regulariser than L1.
 # Classification
 ## Binary Classification
 *Predict yes or no, -1 or +1 $\to$ separate points by hyperplane (n-1 dimensional plane).*
-**Intuitive loss function**: $l(y,\hat{y})=\begin{cases}0 & \text{if } y = \hat{y} \\ 1 & \text{if } y \neq \hat{y} \end{cases}$. NP-hard because of the jump in the loss function
-	$\to$ not differentiable and thus no gradient.
+**Intuitive loss function**: $l(y,\hat{y})=\begin{cases}0 & \text{if } y = \hat{y} \\ 1 & \text{if } y \neq \hat{y} \end{cases}$. NP-hard because of the jump in the loss function.  
+  $\to$ not differentiable and thus no gradient.
 ## Logistic regression
 *Use log loss instead $f(x)=\log{(1+\exp{(-y\cdot (x^\top w+b)}))}$.*
 - **Misleading name**: No regression but actually classification.
 - **Logistic function**: smooth approximation of the step function. $p(y=1|x)=\frac{1}{1+\exp{(-(x^\top w+b))}}$.
-- **MLE**: Logistic regression is the MLE when using logistic function is used.
-**More loss functions**: Hinge $max(0,1-t)$. Squared hinge loss $max(0,1-t)^2$.
+- **MLE**: Logistic regression is the MLE when using logistic function.
+**More loss functions**: Hinge $max(0,1-t)$. Squared hinge $max(0,1-t)^2$.
 ## Support Vector Machines
 *wiggle the hyperplane for more robust classifier $\to$ maximize margin between + and - points.*
 - hard v. soft margin: no points inside margin v. allow small error.
