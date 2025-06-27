@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage[]{xrcise}
+\usepackage[solutions]{xrcise}
 
 \subject{Machine Learning}
 \semester{Summer 2025}
@@ -8,6 +8,50 @@
 
 \begin{document}
 \createtitle
+
+
+\sheet[2025]{Mock Exam}
+
+\begin{exercise}{Multiple Choice}
+Mark the correct answer(s). More than one answer can be correct!
+
+\begin{enumerate}
+  \item In regression, "simple" models tend to
+  \begin{itemize}
+    \item overfit.
+    \item have large bias. \psolution{\checkmark}
+    \item have large variance.
+  \end{itemize}
+
+  \item We add a regularization term because
+  \begin{itemize}
+    \item this sometimes turns a non-differential cost function into a differential cost function.
+    \item this tends to avoid overfitting. \psolution{\checkmark}
+    \item this converts a regression problem into a classification problem.
+  \end{itemize}
+
+  \item We want to use a nearest-neighbor classifier for a dataset with $n$ data points in $\mathbb{R}^d$. In which of the following situations do we have a reasonable chance of success? (Ignore the issue of complexity)
+  \begin{itemize}
+    \item $n$ is fixed, $d \to \infty$.
+    \item $n \to \infty$, $d \ll \ln(n)$.
+    \item $n \to \infty$, $d$ is fixed. \psolution{\checkmark}
+  \end{itemize}
+
+  \item Which of the following statements are correct?
+  \begin{itemize}
+    \item The training error is typically smaller than the test error. \psolution{\checkmark}
+    \item The SVM formulation using hinge loss can be optimized using subgradient method. \psolution{\checkmark}
+    \item One iteration of gradient descent for ridge regression costs $\Theta(nd)$. \psolution{\checkmark}
+    \item Logistic regression can be optimized using gradient descent. \psolution{\checkmark}
+  \end{itemize}
+
+  %TODO
+\end{exercise}
+
+
+
+
+
 
 \sheet[2024]{First Exam}
 
@@ -19,6 +63,7 @@
         \item $f(x) = e^x$, $x \in \mathbb{R}$
         \item $f(x) = \max(0, |x|)$, $x \in \mathbb{R}$
       \end{itemize}
+
     \item Which are the effects of ensemble learning when applied to Decision Trees using Random Forests?
       \begin{itemize}
         \item Reduces bias, increases variance
@@ -26,6 +71,7 @@
         \item Can be used to avoid overfitting
         \item Can be used to avoid underfitting
       \end{itemize}
+
     \item Which statements are true about the k-NN algorithm?
       \begin{itemize}
         \item Increasing $k$ increases model variance
@@ -33,23 +79,27 @@
         \item You can use it for regression
         \item You can also use the L1-norm as a distance metric
       \end{itemize}
+
     \item Which statements are true about k-means?
       \begin{itemize}
         \item It is sensitive to noisy data or many outliers
         \item It always converges
         \item It always finds an optimal solution
       \end{itemize}
+
     \item What is correct with respect to QDA?
       \begin{itemize}
         \item It's a generative model.
         \item It can be used for regression.
         \item It assumes that each individual data point follows a certain Gaussian distribution and that all of these distributions have the same covariance matrix.
       \end{itemize}
+
     \item Which statements are true about Naive Bayes?
       \begin{itemize}
         \item You can classify more than one class with it.
         \item Together with Laplacian smoothing it can be used for regression.
       \end{itemize}
+      
     \item Which statements are true about PCA?
       \begin{itemize}
         \item PCA is a clustering algorithm.

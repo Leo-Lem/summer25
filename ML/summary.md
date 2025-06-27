@@ -256,7 +256,7 @@ Match best by pairwise distances $\to$ many possibilities/variants.
 - compute shortest path distances between all pairwise data points.
 - store distance matrix D.
 - run metric DMS on D.
-Equivalent to PCA when using Euclidian distances on centred data.
+**Equivalent to PCA** when using Euclidian distances on centred data.
 # Learning
 ## Ensemble Learning
 *Use different models and combine their results.*
