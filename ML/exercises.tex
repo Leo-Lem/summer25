@@ -9,47 +9,44 @@
 \begin{document}
 \createtitle
 
-
 \sheet[2025]{Mock Exam}
 
 \begin{exercise}{Multiple Choice}
-Mark the correct answer(s). More than one answer can be correct!
+  Mark the correct answer(s). More than one answer can be correct!
 
-\begin{enumerate}
-  \item In regression, "simple" models tend to
-  \begin{itemize}
-    \item overfit.
-    \item have large bias. \psolution{\checkmark}
-    \item have large variance.
-  \end{itemize}
+  \begin{enumerate}
+    \item In regression, "simple" models tend to
+    \begin{itemize}
+      \item overfit.
+      \item have large bias. \psolution{\checkmark}
+      \item have large variance.
+    \end{itemize}
 
-  \item We add a regularization term because
-  \begin{itemize}
-    \item this sometimes turns a non-differential cost function into a differential cost function.
-    \item this tends to avoid overfitting. \psolution{\checkmark}
-    \item this converts a regression problem into a classification problem.
-  \end{itemize}
+    \item We add a regularization term because
+    \begin{itemize}
+      \item this sometimes turns a non-differential cost function into a differential cost function.
+      \item this tends to avoid overfitting. \psolution{\checkmark}
+      \item this converts a regression problem into a classification problem.
+    \end{itemize}
 
-  \item We want to use a nearest-neighbor classifier for a dataset with $n$ data points in $\mathbb{R}^d$. In which of the following situations do we have a reasonable chance of success? (Ignore the issue of complexity)
-  \begin{itemize}
-    \item $n$ is fixed, $d \to \infty$.
-    \item $n \to \infty$, $d \ll \ln(n)$.
-    \item $n \to \infty$, $d$ is fixed. \psolution{\checkmark}
-  \end{itemize}
+    \item We want to use a nearest-neighbor classifier for a dataset with $n$ data points in $\mathbb{R}^d$. In which of the following situations do we have a reasonable chance of success? (Ignore the issue of complexity)
+    \begin{itemize}
+      \item $n$ is fixed, $d \to \infty$.
+      \item $n \to \infty$, $d \ll \ln(n)$.
+      \item $n \to \infty$, $d$ is fixed. \psolution{\checkmark}
+    \end{itemize}
 
-  \item Which of the following statements are correct?
-  \begin{itemize}
-    \item The training error is typically smaller than the test error. \psolution{\checkmark}
-    \item The SVM formulation using hinge loss can be optimized using subgradient method. \psolution{\checkmark}
-    \item One iteration of gradient descent for ridge regression costs $\Theta(nd)$. \psolution{\checkmark}
-    \item Logistic regression can be optimized using gradient descent. \psolution{\checkmark}
-  \end{itemize}
+    \item Which of the following statements are correct?
+    \begin{itemize}
+      \item The training error is typically smaller than the test error. \psolution{\checkmark}
+      \item The SVM formulation using hinge loss can be optimized using subgradient method. \psolution{\checkmark}
+      \item One iteration of gradient descent for ridge regression costs $\Theta(nd)$. \psolution{\checkmark}
+      \item Logistic regression can be optimized using gradient descent. \psolution{\checkmark}
+    \end{itemize}
+  \end{enumerate}
 
   %TODO
 \end{exercise}
-
-
-
 
 
 
@@ -57,68 +54,49 @@ Mark the correct answer(s). More than one answer can be correct!
 
 \begin{exercise}{Multiple Choice}
   \begin{enumerate}
-    \item Which of the following functions is convex?
-      \begin{itemize}
-        \item $f(x) = ||x||_1 - 1$, $x \in \mathbb{R}^d$
-        \item $f(x) = e^x$, $x \in \mathbb{R}$
-        \item $f(x) = \max(0, |x|)$, $x \in \mathbb{R}$
+    \item Which of the following functions is convex? \begin{itemize}
+        \item $f(x) = ||x||_1 - 1$, $x \in \mathbb{R}^d$ \psolution{\checkmark}
+        \item $f(x) = e^x$, $x \in \mathbb{R}$ \psolution{\checkmark}
+        \item $f(x) = \max(0, |x|)$, $x \in \mathbb{R}$ \psolution{\checkmark}
       \end{itemize}
 
-    \item Which are the effects of ensemble learning when applied to Decision Trees using Random Forests?
-      \begin{itemize}
-        \item Reduces bias, increases variance
-        \item Reduces variance, increases bias
-        \item Can be used to avoid overfitting
-        \item Can be used to avoid underfitting
+    \item Which are the effects of ensemble learning when applied to Decision Trees using Random Forests? \begin{itemize}
+        \item Reduces bias, increases variance.
+        \item Reduces variance, increases bias. \psolution{\checkmark}
+        \item Can be used to avoid overfitting. \psolution{\checkmark}
+        \item Can be used to avoid underfitting.
       \end{itemize}
 
-    \item Which statements are true about the k-NN algorithm?
-      \begin{itemize}
-        \item Increasing $k$ increases model variance
-        \item Increasing $k$ increases model bias
-        \item You can use it for regression
-        \item You can also use the L1-norm as a distance metric
+    \item Which statements are true about the k-NN algorithm? \begin{itemize}
+        \item Increasing $k$ increases model variance.
+        \item Increasing $k$ increases model bias. \psolution{\checkmark}
+        \item You can use it for regression. \psolution{\checkmark}
+        \item You can also use the L1-norm as a distance metric. \psolution{\checkmark}
       \end{itemize}
 
-    \item Which statements are true about k-means?
-      \begin{itemize}
-        \item It is sensitive to noisy data or many outliers
-        \item It always converges
-        \item It always finds an optimal solution
+    \item Which statements are true about k-means? \begin{itemize}
+        \item It is sensitive to noisy data or many outliers. \psolution{\checkmark}
+        \item It always converges. \psolution{\checkmark}
+        \item It always finds an optimal solution.
       \end{itemize}
 
-    \item What is correct with respect to QDA?
-      \begin{itemize}
-        \item It's a generative model.
+    \item What is correct with respect to QDA? \begin{itemize}
+        \item It's a generative model. \psolution{\checkmark}
         \item It can be used for regression.
         \item It assumes that each individual data point follows a certain Gaussian distribution and that all of these distributions have the same covariance matrix.
       \end{itemize}
 
-    \item Which statements are true about Naive Bayes?
-      \begin{itemize}
-        \item You can classify more than one class with it.
-        \item Together with Laplacian smoothing it can be used for regression.
+    \item Which statements are true about Naive Bayes? \begin{itemize}
+        \item You can classify more than one class with it. \psolution{\checkmark}
+        \item Together with Laplacian smoothing, it can be used for regression.
       \end{itemize}
       
-    \item Which statements are true about PCA?
-      \begin{itemize}
+    \item Which statements are true about PCA? \begin{itemize}
         \item PCA is a clustering algorithm.
-        \item In PCA, the variance of the projected data points is maximized.
-        \item PCA uses linear combinations of the input features for the transformation.
+        \item In PCA, the variance of the projected data points is maximized. \psolution{\checkmark}
+        \item PCA uses linear combinations of the input features for the transformation. \psolution{\checkmark}
       \end{itemize}
   \end{enumerate}
-
-  \begin{solution}
-    \begin{enumerate}
-      \item \textbf{Convex functions:} $f(x) = ||x||_1 - 1$ is convex, $f(x) = e^x$ is convex, $f(x) = \max(0, |x|)$ is convex.
-      \item \textbf{Ensemble learning effects:} Reduces variance, increases bias; can be used to avoid overfitting.
-      \item \textbf{KNN statements:} Increasing $k$ increases model bias; you can use it for regression; you can also use the L1-norm as a distance metric.
-      \item \textbf{k-means statements:} It is sensitive to noisy data or many outliers; it always converges.
-      \item \textbf{QDA statements:} It's a generative model; it can be used for regression.
-      \item \textbf{Naive Bayes statements:} You can classify more than one class with it.
-      \item \textbf{PCA statements:} In PCA, the variance of the projected data points is maximized; PCA uses linear combinations of the input features for the transformation.
-    \end{enumerate}
-  \end{solution}
 \end{exercise}
 
 \begin{exercise}{SVMs}

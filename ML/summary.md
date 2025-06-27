@@ -283,4 +283,4 @@ Match best by pairwise distances $\to$ many possibilities/variants.
 k-means leads to Voronoi partition.
 Many variants exist.
 ## Deep Learning
-
+**Rectified Linear Unit** $ReLU(x)=max(0,x)$.
